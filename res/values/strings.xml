@@ -2,4 +2,12 @@
 
     <string name="app_name">Menu Tablet</string>
 
+    <!-- Main activity -->
+    <string name="main_activity_menu">MENU</string>
+    <string name="main_activity_email_hint">Email address</string>
+    <string name="main_activity_password_hint">Password</string>
+    <string name="main_activity_sign_in">SIGN IN</string>
+    <string name="main_activity_service_timeline">SERVICE TIMELINE</string>
+    <string name="main_activity_log_out">LOG OUT</string>
+
 </resources>
