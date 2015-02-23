@@ -5,5 +5,6 @@ public class Item {
 	public String itemname;
 	public int amount;
 	public String imagesrc;
-	
+	public String label;
+
 }

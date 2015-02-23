@@ -38,6 +38,9 @@ public class GsonRequest<T> extends Request<T> {
 
 	public GsonRequest(Activity context, int method, String url, Map<String, String> params, Class<T> outputType, Listener<T> listener, ErrorListener errorListener) {
 		super(method, Constants.getPrefix() + Constants.BASE_URL + url + ".php" + (method == Request.Method.GET ? getParams(params, true) : ""), errorListener);
+
+		Log.d(TAG, "url " + Constants.getPrefix() + Constants.BASE_URL + url + ".php" + (method == Request.Method.GET ? getParams(params, true) : ""));
+
 		this.listener = listener;
 		this.outputType = outputType;
 		this.activityContext = context;

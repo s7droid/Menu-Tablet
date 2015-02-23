@@ -59,7 +59,6 @@ public class MenuTablet extends Application {
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		System.out.println("DroveU.onCreate()");
 		this.context = getApplicationContext();
 	}
 

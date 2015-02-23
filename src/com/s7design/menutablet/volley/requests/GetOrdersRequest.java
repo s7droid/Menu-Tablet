@@ -13,11 +13,11 @@ import com.s7design.menutablet.volley.responses.GetOrdersResponse;
 public class GetOrdersRequest extends GsonRequest<GetOrdersResponse> {
 
 	public GetOrdersRequest(Activity context, Map<String, String> params, Listener<GetOrdersResponse> listener) {
-		super(context, Request.Method.GET, "orders", params, GetOrdersResponse.class, listener, new ErrorListener() {
+		super(context, Request.Method.POST, "orders", params, GetOrdersResponse.class, listener, new ErrorListener() {
 
 			@Override
 			public void onErrorResponse(VolleyError arg0) {
-				
+
 			}
 		});
 	}

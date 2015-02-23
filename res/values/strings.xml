@@ -10,4 +10,11 @@
     <string name="main_activity_service_timeline">SERVICE TIMELINE</string>
     <string name="main_activity_log_out">LOG OUT</string>
 
+    <!-- Order activity -->
+    <string name="order_activity_table">TABLE</string>
+    <string name="order_activity_time">TIME</string>
+
+    <!-- Dialogs -->
+    <string name="dialog_loading">Loading&#8230;</string>
+
 </resources>

@@ -79,12 +79,14 @@
                     android:src="@drawable/sign_in_user_icon" />
 
                 <com.s7design.menutablet.views.MenuEditText
+                    android:id="@+id/editTextEmail"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@null"
                     android:hint="@string/main_activity_email_hint"
                     android:inputType="textEmailAddress"
+                    android:text="test"
                     android:textColor="@color/menu_main_gray"
                     android:textColorHint="@color/menu_main_gray_light"
                     android:textSize="24sp"
@@ -113,12 +115,14 @@
                     android:src="@drawable/sign_in_lock_icon" />
 
                 <com.s7design.menutablet.views.MenuEditText
+                    android:id="@+id/editTextPassword"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@null"
                     android:hint="@string/main_activity_password_hint"
                     android:inputType="textPassword"
+                    android:text="hello"
                     android:textColor="@color/menu_main_gray"
                     android:textColorHint="@color/menu_main_gray_light"
                     android:textSize="24sp"
