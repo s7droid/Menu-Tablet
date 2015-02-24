@@ -9,11 +9,14 @@
         android:layout_height="match_parent"
         android:layout_weight="5"
         android:background="@color/menu_main_gray_lighter"
-        android:orientation="horizontal" >
+        android:orientation="horizontal"
+        android:paddingBottom="20dp"
+        android:paddingTop="20dp" >
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
             android:layout_weight="2"
             android:orientation="vertical" >
 
@@ -25,23 +28,35 @@
                 <com.s7design.menutablet.views.MenuTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/order_activity_table" />
+                    android:text="@string/order_activity_table"
+                    android:textColor="@color/menu_main_orange"
+                    android:textSize="18sp" />
 
                 <com.s7design.menutablet.views.MenuTextView
                     android:id="@+id/textViewTableNumber"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="@color/menu_main_orange"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <com.s7design.menutablet.views.MenuTextView
                 android:id="@+id/textViewDesc1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textColor="@color/menu_main_orange"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <com.s7design.menutablet.views.MenuTextView
                 android:id="@+id/textViewDesc2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textColor="@color/menu_main_orange"
+                android:textSize="20sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <View
@@ -52,18 +67,25 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:layout_weight="2"
             android:orientation="vertical" >
 
             <com.s7design.menutablet.views.MenuTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/order_activity_time" />
+                android:text="@string/order_activity_time"
+                android:textColor="@color/menu_main_orange"
+                android:textSize="18sp" />
 
             <com.s7design.menutablet.views.MenuTextView
                 android:id="@+id/textViewTime"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textColor="@color/menu_main_orange"
+                android:textSize="20sp"
+                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
 
@@ -72,7 +94,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="18"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        android:paddingLeft="30dp" >
     </LinearLayout>
 
     <LinearLayout

@@ -25,6 +25,7 @@
         </activity>
         <activity
             android:name="com.s7design.menutablet.activities.OrderActivity"
+            android:hardwareAccelerated="true"
             android:screenOrientation="landscape" />
     </application>
 

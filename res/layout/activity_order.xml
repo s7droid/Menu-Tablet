@@ -23,7 +23,7 @@
             <ImageView
                 android:layout_width="45dp"
                 android:layout_height="45dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="20dp"
                 android:layout_marginRight="10dp"
                 android:scaleType="centerInside"
                 android:src="@drawable/logo" />
@@ -72,17 +72,13 @@
         </LinearLayout>
     </LinearLayout>
 
-    <ScrollView
+    <ListView
+        android:id="@+id/listView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_weight="1" >
-
-        <LinearLayout
-            android:id="@+id/layoutContainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
-        </LinearLayout>
-    </ScrollView>
+    </ListView>
 
 </LinearLayout>
