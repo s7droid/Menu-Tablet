@@ -1,17 +1,18 @@
 package com.s7design.menutablet.activities;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.android.volley.Response.Listener;
 import com.s7design.menutablet.R;
@@ -27,10 +28,14 @@ public class OrderActivity extends BaseActivity {
 	private static final String TAG = OrderActivity.class.getSimpleName();
 
 	private ListView listView;
+	private TextView textViewActive;
+	private TextView textViewFinished;
 
-	private ArrayList<OrderItem> orders;
+	private ArrayList<OrderItem> ordersActive;
+	private ArrayList<OrderItem> ordersFinished;
 
-	private Adapter adapter;
+	private Adapter adapterActive;
+	private Adapter adapterFinished;
 
 	private int rowNumber = 0;
 
@@ -42,6 +47,32 @@ public class OrderActivity extends BaseActivity {
 		showProgressDialogLoading();
 
 		listView = (ListView) findViewById(R.id.listView);
+		textViewActive = (TextView) findViewById(R.id.textViewActive);
+		textViewFinished = (TextView) findViewById(R.id.textViewFinished);
+
+		textViewActive.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+
+				textViewActive.setTextColor(getResources().getColor(R.color.menu_main_orange));
+				textViewFinished.setTextColor(getResources().getColor(R.color.menu_main_gray_light));
+
+				listView.setAdapter(adapterActive);
+			}
+		});
+
+		textViewFinished.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+
+				textViewActive.setTextColor(getResources().getColor(R.color.menu_main_gray_light));
+				textViewFinished.setTextColor(getResources().getColor(R.color.menu_main_orange));
+
+				listView.setAdapter(adapterFinished);
+			}
+		});
 
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("accesstoken", Settings.getAccessToken(this));
@@ -49,28 +80,50 @@ public class OrderActivity extends BaseActivity {
 		GetOrdersRequest getOrdersRequest = new GetOrdersRequest(OrderActivity.this, params, new Listener<GetOrdersResponse>() {
 
 			@Override
-			public void onResponse(GetOrdersResponse getOrdersResponse) {
+			public void onResponse(final GetOrdersResponse getOrdersResponse) {
 
 				if (getOrdersResponse.response != null && getOrdersResponse.response.equals("success")) {
 
-					orders = new ArrayList<OrderItem>(Arrays.asList(getOrdersResponse.orders));
+					new AsyncTask<Void, Void, Void>() {
 
-					int maxElNum = 0;
+						@Override
+						protected Void doInBackground(Void... params) {
 
-					for (OrderItem order : orders) {
-						if (order.items.length > maxElNum)
-							maxElNum = order.items.length;
-					}
+							ordersActive = new ArrayList<OrderItem>();
+							ordersFinished = new ArrayList<OrderItem>();
 
-					rowNumber = maxElNum / 3 + (maxElNum % 3 > 0 ? 1 : 0);
+							int maxElNum = 0;
 
-					adapter = new Adapter(OrderActivity.this, orders);
-					listView.setAdapter(adapter);
+							for (OrderItem item : getOrdersResponse.orders) {
+								if (item.status.equals("active")) {
+									ordersActive.add(item);
+								} else {
+									ordersFinished.add(item);
+								}
+
+								if (item.items.length > maxElNum)
+									maxElNum = item.items.length;
+							}
+
+							rowNumber = maxElNum / 3 + (maxElNum % 3 > 0 ? 1 : 0);
+
+							adapterActive = new Adapter(OrderActivity.this, ordersActive);
+							adapterFinished = new Adapter(OrderActivity.this, ordersFinished);
+
+							return null;
+						}
+
+						protected void onPostExecute(Void result) {
+
+							listView.setAdapter(adapterActive);
+							dismissProgressDialog();
+						};
+					}.execute();
+
 				} else {
-
+					dismissProgressDialog();
 				}
 
-				dismissProgressDialog();
 			}
 		});
 

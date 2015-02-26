@@ -16,7 +16,7 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.s7design.menutablet.activities.MainActivity"
-            android:screenOrientation="landscape" >
+            android:screenOrientation="sensorLandscape" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,7 +26,7 @@
         <activity
             android:name="com.s7design.menutablet.activities.OrderActivity"
             android:hardwareAccelerated="true"
-            android:screenOrientation="landscape" />
+            android:screenOrientation="sensorLandscape" />
     </application>
 
 </manifest>

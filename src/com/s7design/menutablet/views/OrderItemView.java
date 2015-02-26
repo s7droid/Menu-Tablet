@@ -42,8 +42,10 @@ public class OrderItemView extends LinearLayout {
 		for (int i = 0; i < rowNumber; ++i) {
 			OrderItemRow row = new OrderItemRow(getContext());
 			layoutRowContainer.addView(row);
-			if (i > 0)
+			if (i > 0) {
+				row.showDivider();
 				row.setVisibility(View.GONE);
+			}
 		}
 	}
 

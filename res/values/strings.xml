@@ -13,6 +13,10 @@
     <!-- Order activity -->
     <string name="order_activity_table">TABLE</string>
     <string name="order_activity_time">TIME</string>
+    <string name="order_activity_order_info">Order info</string>
+    <string name="order_activity_orders_to_serve">Orders to serve</string>
+    <string name="order_activity_finished">Finished</string>
+    <string name="order_activity_active">Active</string>
 
     <!-- Dialogs -->
     <string name="dialog_loading">Loading&#8230;</string>

@@ -29,6 +29,7 @@ public class OrderItemRow extends LinearLayout {
 	private TextView textViewQuantity3;
 	private LinearLayout layout2;
 	private LinearLayout layout3;
+	private View viewDivider;
 
 	private ImageLoader imageLoader;
 
@@ -56,8 +57,13 @@ public class OrderItemRow extends LinearLayout {
 		textViewQuantity3 = (TextView) findViewById(R.id.textViewQuantity3);
 		layout2 = (LinearLayout) findViewById(R.id.layout2);
 		layout3 = (LinearLayout) findViewById(R.id.layout3);
+		viewDivider = (View) findViewById(R.id.viewDivider);
 
 		imageLoader = VolleySingleton.getInstance(getContext()).getImageLoader();
+	}
+
+	public void showDivider() {
+		viewDivider.setVisibility(View.VISIBLE);
 	}
 
 	public void setData(Item item1, Item item2, Item item3) {

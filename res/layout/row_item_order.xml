@@ -3,166 +3,177 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:baselineAligned="false"
-    android:orientation="horizontal" >
+    android:orientation="vertical" >
+
+    <View
+        android:id="@+id/viewDivider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/menu_main_gray_light_divider"
+        android:visibility="gone" />
 
     <LinearLayout
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        android:paddingBottom="20dp"
-        android:paddingTop="20dp" >
-
-        <com.android.volley.toolbox.NetworkImageView
-            android:id="@+id/imageView1"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:scaleType="centerCrop" />
+        android:orientation="horizontal" >
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:orientation="vertical" >
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:paddingBottom="20dp" >
 
-            <com.s7design.menutablet.views.MenuTextView
-                android:id="@+id/textViewTitle1"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:ellipsize="end"
-                android:gravity="top"
-                android:singleLine="true"
-                android:textSize="18sp" />
+            <com.android.volley.toolbox.NetworkImageView
+                android:id="@+id/imageView1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:scaleType="centerCrop" />
 
-            <com.s7design.menutablet.views.MenuTextView
-                android:id="@+id/textViewDesc1"
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:ellipsize="end"
-                android:gravity="center_vertical"
-                android:singleLine="true"
-                android:textSize="18sp" />
+                android:layout_height="100dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical" >
 
-            <com.s7design.menutablet.views.MenuTextView
-                android:id="@+id/textViewQuantity1"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:ellipsize="end"
-                android:gravity="bottom"
-                android:singleLine="true"
-                android:textSize="18sp" />
+                <com.s7design.menutablet.views.MenuTextView
+                    android:id="@+id/textViewTitle1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:gravity="top"
+                    android:singleLine="true"
+                    android:textSize="18sp" />
+
+                <com.s7design.menutablet.views.MenuTextView
+                    android:id="@+id/textViewDesc1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textSize="18sp" />
+
+                <com.s7design.menutablet.views.MenuTextView
+                    android:id="@+id/textViewQuantity1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:gravity="bottom"
+                    android:singleLine="true"
+                    android:textSize="18sp" />
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/layout2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        android:paddingBottom="20dp"
-        android:paddingTop="20dp" >
-
-        <com.android.volley.toolbox.NetworkImageView
-            android:id="@+id/imageView2"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:scaleType="centerCrop" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:orientation="vertical" >
+            android:id="@+id/layout2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:paddingBottom="20dp" >
 
-            <com.s7design.menutablet.views.MenuTextView
-                android:id="@+id/textViewTitle2"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:ellipsize="end"
-                android:gravity="top"
-                android:singleLine="true"
-                android:textSize="18sp" />
+            <com.android.volley.toolbox.NetworkImageView
+                android:id="@+id/imageView2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:scaleType="centerCrop" />
 
-            <com.s7design.menutablet.views.MenuTextView
-                android:id="@+id/textViewDesc2"
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:ellipsize="end"
-                android:gravity="center_vertical"
-                android:singleLine="true"
-                android:textSize="18sp" />
+                android:layout_height="100dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical" >
 
-            <com.s7design.menutablet.views.MenuTextView
-                android:id="@+id/textViewQuantity2"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:ellipsize="end"
-                android:gravity="bottom"
-                android:singleLine="true"
-                android:textSize="18sp" />
+                <com.s7design.menutablet.views.MenuTextView
+                    android:id="@+id/textViewTitle2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:gravity="top"
+                    android:singleLine="true"
+                    android:textSize="18sp" />
+
+                <com.s7design.menutablet.views.MenuTextView
+                    android:id="@+id/textViewDesc2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textSize="18sp" />
+
+                <com.s7design.menutablet.views.MenuTextView
+                    android:id="@+id/textViewQuantity2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:gravity="bottom"
+                    android:singleLine="true"
+                    android:textSize="18sp" />
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/layout3"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        android:paddingBottom="20dp"
-        android:paddingTop="20dp" >
-
-        <com.android.volley.toolbox.NetworkImageView
-            android:id="@+id/imageView3"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:scaleType="centerCrop" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:orientation="vertical" >
+            android:id="@+id/layout3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:paddingBottom="20dp" >
 
-            <com.s7design.menutablet.views.MenuTextView
-                android:id="@+id/textViewTitle3"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:ellipsize="end"
-                android:gravity="top"
-                android:singleLine="true"
-                android:textSize="18sp" />
+            <com.android.volley.toolbox.NetworkImageView
+                android:id="@+id/imageView3"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:scaleType="centerCrop" />
 
-            <com.s7design.menutablet.views.MenuTextView
-                android:id="@+id/textViewDesc3"
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:ellipsize="end"
-                android:gravity="center_vertical"
-                android:singleLine="true"
-                android:textSize="18sp" />
+                android:layout_height="100dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical" >
 
-            <com.s7design.menutablet.views.MenuTextView
-                android:id="@+id/textViewQuantity3"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:ellipsize="end"
-                android:gravity="bottom"
-                android:singleLine="true"
-                android:textSize="18sp" />
+                <com.s7design.menutablet.views.MenuTextView
+                    android:id="@+id/textViewTitle3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:gravity="top"
+                    android:singleLine="true"
+                    android:textSize="18sp" />
+
+                <com.s7design.menutablet.views.MenuTextView
+                    android:id="@+id/textViewDesc3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textSize="18sp" />
+
+                <com.s7design.menutablet.views.MenuTextView
+                    android:id="@+id/textViewQuantity3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:gravity="bottom"
+                    android:singleLine="true"
+                    android:textSize="18sp" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
