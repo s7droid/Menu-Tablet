@@ -1,6 +1,7 @@
 package com.s7design.menutablet.views;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -30,6 +31,8 @@ public class OrderItemView extends LinearLayout {
 	}
 
 	private void init() {
+
+		Log.w(TAG, "init");
 
 		inflate(getContext(), R.layout.item_order, this);
 
@@ -73,9 +76,17 @@ public class OrderItemView extends LinearLayout {
 				}
 
 				((OrderItemRow) item).setData(i1, i2, i3);
-				item.setVisibility(View.VISIBLE);
+				if (item.getVisibility() != View.VISIBLE) {
+					item.setVisibility(View.VISIBLE);
+					Log.w(TAG, "set visible");
+				}
+
 			} else {
-				item.setVisibility(View.GONE);
+				if (item.getVisibility() != View.GONE) {
+					item.setVisibility(View.GONE);
+					Log.w(TAG, "set gone");
+				}
+
 			}
 		}
 

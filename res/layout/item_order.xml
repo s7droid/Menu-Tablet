@@ -28,7 +28,7 @@
 
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginRight="20dp"
                     android:layout_weight="2"
                     android:orientation="vertical" >
@@ -36,26 +36,25 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal" >
+                        android:orientation="horizontal"
+                        android:padding="0dp" >
 
                         <com.s7design.menutablet.views.MenuTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:ellipsize="end"
                             android:singleLine="true"
                             android:text="@string/order_activity_table"
                             android:textColor="@color/menu_main_orange"
-                            android:textSize="18sp" />
+                            android:textSize="22sp" />
 
                         <com.s7design.menutablet.views.MenuTextView
                             android:id="@+id/textViewTableNumber"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="5dp"
-                            android:ellipsize="end"
                             android:singleLine="true"
                             android:textColor="@color/menu_main_orange"
-                            android:textSize="18sp"
+                            android:textSize="22sp"
                             android:textStyle="bold" />
                     </LinearLayout>
 
@@ -63,20 +62,18 @@
                         android:id="@+id/textViewDesc1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:ellipsize="end"
                         android:singleLine="true"
                         android:textColor="@color/menu_main_orange"
-                        android:textSize="20sp"
+                        android:textSize="24sp"
                         android:textStyle="bold" />
 
                     <com.s7design.menutablet.views.MenuTextView
                         android:id="@+id/textViewDesc2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:ellipsize="end"
                         android:singleLine="true"
                         android:textColor="@color/menu_main_orange"
-                        android:textSize="20sp"
+                        android:textSize="24sp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -96,20 +93,18 @@
                     <com.s7design.menutablet.views.MenuTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:ellipsize="end"
                         android:singleLine="true"
                         android:text="@string/order_activity_time"
                         android:textColor="@color/menu_main_orange"
-                        android:textSize="18sp" />
+                        android:textSize="22sp" />
 
                     <com.s7design.menutablet.views.MenuTextView
                         android:id="@+id/textViewTime"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:ellipsize="end"
                         android:singleLine="true"
                         android:textColor="@color/menu_main_orange"
-                        android:textSize="20sp"
+                        android:textSize="22sp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>

@@ -26,6 +26,8 @@ public class MenuTextView extends TextView {
 
 		int isBold = attrs.getAttributeIntValue("http://schemas.android.com/apk/res/android", "textStyle", 0);
 
+		setIncludeFontPadding(false);
+
 		if (isBold == 1)
 			isBookFont = false;
 
@@ -39,5 +41,5 @@ public class MenuTextView extends TextView {
 		else
 			setTypeface(Typeface.createFromAsset(context.getAssets(), "fonts/GothamRounded-Medium.otf"));
 	}
-	
+
 }

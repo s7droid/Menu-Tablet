@@ -16,6 +16,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:baselineAligned="false"
         android:orientation="horizontal" >
 
         <LinearLayout
@@ -42,21 +43,13 @@
                     android:id="@+id/textViewTitle1"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:ellipsize="end"
                     android:gravity="top"
-                    android:singleLine="true"
-                    android:textSize="18sp" />
-
-                <com.s7design.menutablet.views.MenuTextView
-                    android:id="@+id/textViewDesc1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:ellipsize="end"
-                    android:gravity="center_vertical"
-                    android:singleLine="true"
-                    android:textSize="18sp" />
+                    android:lineSpacingMultiplier="1.6"
+                    android:lines="2"
+                    android:textColor="@color/menu_main_gray"
+                    android:textSize="22sp" />
 
                 <com.s7design.menutablet.views.MenuTextView
                     android:id="@+id/textViewQuantity1"
@@ -66,7 +59,7 @@
                     android:ellipsize="end"
                     android:gravity="bottom"
                     android:singleLine="true"
-                    android:textSize="18sp" />
+                    android:textSize="22sp" />
             </LinearLayout>
         </LinearLayout>
 
@@ -95,21 +88,13 @@
                     android:id="@+id/textViewTitle2"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:ellipsize="end"
                     android:gravity="top"
-                    android:singleLine="true"
-                    android:textSize="18sp" />
-
-                <com.s7design.menutablet.views.MenuTextView
-                    android:id="@+id/textViewDesc2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:ellipsize="end"
-                    android:gravity="center_vertical"
-                    android:singleLine="true"
-                    android:textSize="18sp" />
+                    android:lineSpacingMultiplier="1.6"
+                    android:lines="2"
+                    android:textColor="@color/menu_main_gray"
+                    android:textSize="22sp" />
 
                 <com.s7design.menutablet.views.MenuTextView
                     android:id="@+id/textViewQuantity2"
@@ -119,7 +104,7 @@
                     android:ellipsize="end"
                     android:gravity="bottom"
                     android:singleLine="true"
-                    android:textSize="18sp" />
+                    android:textSize="22sp" />
             </LinearLayout>
         </LinearLayout>
 
@@ -148,21 +133,13 @@
                     android:id="@+id/textViewTitle3"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:ellipsize="end"
                     android:gravity="top"
-                    android:singleLine="true"
-                    android:textSize="18sp" />
-
-                <com.s7design.menutablet.views.MenuTextView
-                    android:id="@+id/textViewDesc3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:ellipsize="end"
-                    android:gravity="center_vertical"
-                    android:singleLine="true"
-                    android:textSize="18sp" />
+                    android:lineSpacingMultiplier="1.6"
+                    android:lines="2"
+                    android:textColor="@color/menu_main_gray"
+                    android:textSize="22sp" />
 
                 <com.s7design.menutablet.views.MenuTextView
                     android:id="@+id/textViewQuantity3"
@@ -172,7 +149,7 @@
                     android:ellipsize="end"
                     android:gravity="bottom"
                     android:singleLine="true"
-                    android:textSize="18sp" />
+                    android:textSize="22sp" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

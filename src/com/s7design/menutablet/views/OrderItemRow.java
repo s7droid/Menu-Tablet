@@ -1,6 +1,7 @@
 package com.s7design.menutablet.views;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -21,14 +22,9 @@ public class OrderItemRow extends LinearLayout {
 	private TextView textViewTitle1;
 	private TextView textViewTitle2;
 	private TextView textViewTitle3;
-	private TextView textViewDesc1;
-	private TextView textViewDesc2;
-	private TextView textViewDesc3;
 	private TextView textViewQuantity1;
 	private TextView textViewQuantity2;
 	private TextView textViewQuantity3;
-	private LinearLayout layout2;
-	private LinearLayout layout3;
 	private View viewDivider;
 
 	private ImageLoader imageLoader;
@@ -41,6 +37,8 @@ public class OrderItemRow extends LinearLayout {
 
 	private void init() {
 
+		Log.e(TAG, "init");
+
 		inflate(getContext(), R.layout.row_item_order, this);
 
 		imageView1 = (NetworkImageView) findViewById(R.id.imageView1);
@@ -49,17 +47,14 @@ public class OrderItemRow extends LinearLayout {
 		textViewTitle1 = (TextView) findViewById(R.id.textViewTitle1);
 		textViewTitle2 = (TextView) findViewById(R.id.textViewTitle2);
 		textViewTitle3 = (TextView) findViewById(R.id.textViewTitle3);
-		textViewDesc1 = (TextView) findViewById(R.id.textViewDesc1);
-		textViewDesc2 = (TextView) findViewById(R.id.textViewDesc2);
-		textViewDesc3 = (TextView) findViewById(R.id.textViewDesc3);
 		textViewQuantity1 = (TextView) findViewById(R.id.textViewQuantity1);
 		textViewQuantity2 = (TextView) findViewById(R.id.textViewQuantity2);
 		textViewQuantity3 = (TextView) findViewById(R.id.textViewQuantity3);
-		layout2 = (LinearLayout) findViewById(R.id.layout2);
-		layout3 = (LinearLayout) findViewById(R.id.layout3);
 		viewDivider = (View) findViewById(R.id.viewDivider);
 
 		imageLoader = VolleySingleton.getInstance(getContext()).getImageLoader();
+
+		Log.d(TAG, "init done");
 	}
 
 	public void showDivider() {
@@ -71,35 +66,39 @@ public class OrderItemRow extends LinearLayout {
 		imageView1.setImageUrl(item1.imagesrc, imageLoader);
 		textViewTitle1.setText(item1.itemname);
 		textViewQuantity1.setText(item1.amount + " " + item1.label);
-		if (item1.label.equals("LARGE"))
+		if (item1.label.equals("LARGE")||item1.label.equals("BOTTLE"))
 			textViewQuantity1.setTextColor(getResources().getColor(R.color.menu_main_orange));
 		else
 			textViewQuantity1.setTextColor(getResources().getColor(R.color.menu_main_gray));
 
 		if (item2 != null) {
-			layout2.setVisibility(View.VISIBLE);
+			imageView2.setVisibility(View.VISIBLE);
 			imageView2.setImageUrl(item2.imagesrc, imageLoader);
 			textViewTitle2.setText(item2.itemname);
 			textViewQuantity2.setText(item2.amount + " " + item2.label);
-			if (item2.label.equals("LARGE"))
+			if (item2.label.equals("LARGE")||item2.label.equals("BOTTLE"))
 				textViewQuantity2.setTextColor(getResources().getColor(R.color.menu_main_orange));
 			else
 				textViewQuantity2.setTextColor(getResources().getColor(R.color.menu_main_gray));
 		} else {
-			layout2.setVisibility(View.INVISIBLE);
+			imageView2.setVisibility(View.INVISIBLE);
+			textViewTitle2.setText("");
+			textViewQuantity2.setText("");
 		}
 
 		if (item3 != null) {
-			layout3.setVisibility(View.VISIBLE);
+			imageView3.setVisibility(View.VISIBLE);
 			imageView3.setImageUrl(item3.imagesrc, imageLoader);
 			textViewTitle3.setText(item3.itemname);
 			textViewQuantity3.setText(item3.amount + " " + item3.label);
-			if (item3.label.equals("LARGE"))
+			if (item3.label.equals("LARGE")||item3.label.equals("BOTTLE"))
 				textViewQuantity3.setTextColor(getResources().getColor(R.color.menu_main_orange));
 			else
 				textViewQuantity3.setTextColor(getResources().getColor(R.color.menu_main_gray));
 		} else {
-			layout3.setVisibility(View.INVISIBLE);
+			imageView3.setVisibility(View.INVISIBLE);
+			textViewTitle3.setText("");
+			textViewQuantity3.setText("");
 		}
 	}
 

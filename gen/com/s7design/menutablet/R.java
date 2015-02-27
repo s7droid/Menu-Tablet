@@ -65,11 +65,10 @@ containing a value of this type.
         public static final int textViewBodyProgressDialog=0x7f07000b;
         public static final int textViewDesc1=0x7f07000e;
         public static final int textViewDesc2=0x7f07000f;
-        public static final int textViewDesc3=0x7f07001d;
         public static final int textViewFinished=0x7f070004;
         public static final int textViewQuantity1=0x7f070015;
         public static final int textViewQuantity2=0x7f070019;
-        public static final int textViewQuantity3=0x7f07001e;
+        public static final int textViewQuantity3=0x7f07001d;
         public static final int textViewTableNumber=0x7f07000d;
         public static final int textViewTime=0x7f070010;
         public static final int textViewTitle1=0x7f070014;
