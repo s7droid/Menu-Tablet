@@ -3,6 +3,7 @@ package com.s7design.menutablet.views;
 import android.content.Context;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -19,6 +20,7 @@ public class OrderItemView extends LinearLayout {
 	private TextView textViewDesc2;
 	private TextView textViewTime;
 	private LinearLayout layoutRowContainer;
+	private ImageButton imageButton;
 
 	private int rowNumber = 0;
 
@@ -41,6 +43,7 @@ public class OrderItemView extends LinearLayout {
 		textViewDesc2 = (TextView) findViewById(R.id.textViewDesc2);
 		textViewTime = (TextView) findViewById(R.id.textViewTime);
 		layoutRowContainer = (LinearLayout) findViewById(R.id.layoutRowContainer);
+		imageButton = (ImageButton) findViewById(R.id.imageButton);
 
 		for (int i = 0; i < rowNumber; ++i) {
 			OrderItemRow row = new OrderItemRow(getContext());
@@ -86,10 +89,13 @@ public class OrderItemView extends LinearLayout {
 					item.setVisibility(View.GONE);
 					Log.w(TAG, "set gone");
 				}
-
 			}
 		}
+	}
 
+	public void setButtonOnClickListener(int position, OnClickListener listener) {
+		imageButton.setTag(position);
+		imageButton.setOnClickListener(listener);
 	}
 
 }

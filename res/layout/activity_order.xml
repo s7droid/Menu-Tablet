@@ -94,7 +94,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="40dp"
+                android:gravity="center_vertical"
                 android:orientation="horizontal" >
 
                 <com.s7design.menutablet.views.MenuTextView
@@ -114,6 +115,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
                         android:text="@string/order_activity_orders_to_serve"
                         android:textColor="@color/menu_main_orange"
                         android:textSize="28sp" />
@@ -122,13 +124,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
+                        android:gravity="center_vertical"
                         android:orientation="horizontal" >
 
                         <com.s7design.menutablet.views.MenuTextView
                             android:id="@+id/textViewFinished"
                             android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:layout_alignParentLeft="true"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp"
                             android:text="@string/order_activity_finished"
                             android:textColor="@color/menu_main_gray_light"
                             android:textSize="28sp" />
@@ -144,8 +149,10 @@
                         <com.s7design.menutablet.views.MenuTextView
                             android:id="@+id/textViewActive"
                             android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:layout_alignParentLeft="true"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp"
                             android:text="@string/order_activity_active"
                             android:textColor="@color/menu_main_orange"
                             android:textSize="28sp" />
@@ -153,14 +160,23 @@
                 </RelativeLayout>
             </LinearLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/menu_main_orange" />
+
             <ListView
                 android:id="@+id/listView"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_weight="1" >
+                android:layout_weight="1"
+                android:divider="@color/menu_main_gray_light"
+                android:dividerHeight="2dp" >
             </ListView>
         </LinearLayout>
     </RelativeLayout>

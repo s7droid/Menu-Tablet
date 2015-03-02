@@ -7,6 +7,7 @@ import java.util.Map;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -39,6 +40,8 @@ public class OrderActivity extends BaseActivity {
 
 	private int rowNumber = 0;
 
+	private boolean isActive = true;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -55,10 +58,23 @@ public class OrderActivity extends BaseActivity {
 			@Override
 			public void onClick(View v) {
 
-				textViewActive.setTextColor(getResources().getColor(R.color.menu_main_orange));
-				textViewFinished.setTextColor(getResources().getColor(R.color.menu_main_gray_light));
+				Log.d(TAG, "onClick active");
 
-				listView.setAdapter(adapterActive);
+				if (!isActive) {
+					isActive = true;
+					showProgressDialogLoading();
+					textViewActive.setTextColor(getResources().getColor(R.color.menu_main_orange));
+					textViewFinished.setTextColor(getResources().getColor(R.color.menu_main_gray_light));
+
+					listView.setAdapter(adapterActive);
+					listView.post(new Runnable() {
+
+						@Override
+						public void run() {
+							dismissProgressDialog();
+						}
+					});
+				}
 			}
 		});
 
@@ -67,10 +83,23 @@ public class OrderActivity extends BaseActivity {
 			@Override
 			public void onClick(View v) {
 
-				textViewActive.setTextColor(getResources().getColor(R.color.menu_main_gray_light));
-				textViewFinished.setTextColor(getResources().getColor(R.color.menu_main_orange));
+				Log.d(TAG, "onClick finished");
 
-				listView.setAdapter(adapterFinished);
+				if (isActive) {
+					isActive = false;
+					showProgressDialogLoading();
+					textViewActive.setTextColor(getResources().getColor(R.color.menu_main_gray_light));
+					textViewFinished.setTextColor(getResources().getColor(R.color.menu_main_orange));
+
+					listView.setAdapter(adapterFinished);
+					listView.post(new Runnable() {
+
+						@Override
+						public void run() {
+							dismissProgressDialog();
+						}
+					});
+				}
 			}
 		});
 
@@ -164,6 +193,27 @@ public class OrderActivity extends BaseActivity {
 			}
 
 			((OrderItemView) convertView).setData(getItem(position));
+			((OrderItemView) convertView).setButtonOnClickListener(position, new OnClickListener() {
+
+				@Override
+				public void onClick(View v) {
+
+					int position = (int) v.getTag();
+
+					OrderItem item = getItem(position);
+
+					if (item.status.equals("active")) {
+						item.status = "finished";
+						ordersFinished.add(0, ordersActive.remove(position));
+						adapterActive.notifyDataSetChanged();
+					} else {
+						item.status = "active";
+						ordersActive.add(0, ordersFinished.remove(position));
+						adapterFinished.notifyDataSetChanged();
+					}
+
+				}
+			});
 
 			return convertView;
 		}
