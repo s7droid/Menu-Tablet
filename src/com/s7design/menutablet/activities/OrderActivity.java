@@ -21,8 +21,11 @@ import com.s7design.menutablet.dataclasses.OrderItem;
 import com.s7design.menutablet.utils.Settings;
 import com.s7design.menutablet.views.OrderItemView;
 import com.s7design.menutablet.volley.VolleySingleton;
+import com.s7design.menutablet.volley.requests.CompleteOrderRequest;
 import com.s7design.menutablet.volley.requests.GetOrdersRequest;
+import com.s7design.menutablet.volley.responses.CompleteOrderResponse;
 import com.s7design.menutablet.volley.responses.GetOrdersResponse;
+import com.s7design.menutablet.volley.responses.LoginResponse;
 
 public class OrderActivity extends BaseActivity {
 
@@ -198,19 +201,43 @@ public class OrderActivity extends BaseActivity {
 				@Override
 				public void onClick(View v) {
 
-					int position = (int) v.getTag();
+					showProgressDialogLoading();
 
-					OrderItem item = getItem(position);
+					final int position = (int) v.getTag();
 
-					if (item.status.equals("active")) {
-						item.status = "finished";
-						ordersFinished.add(0, ordersActive.remove(position));
-						adapterActive.notifyDataSetChanged();
-					} else {
-						item.status = "active";
-						ordersActive.add(0, ordersFinished.remove(position));
-						adapterFinished.notifyDataSetChanged();
-					}
+					Map<String, String> params = new HashMap<String, String>();
+					params.put("accesstoken", Settings.getAccessToken(OrderActivity.this));
+					params.put("orderid", getItem(position).orderid);
+
+					CompleteOrderRequest loginRequest = new CompleteOrderRequest(OrderActivity.this, params, new Listener<CompleteOrderResponse>() {
+
+						@Override
+						public void onResponse(CompleteOrderResponse loginResponse) {
+
+							Log.e(TAG, "response");
+
+							if (loginResponse.response != null && loginResponse.response.equals("success")) {
+
+								OrderItem item = getItem(position);
+
+								if (item.status.equals("active")) {
+									item.status = "finished";
+									ordersFinished.add(0, ordersActive.remove(position));
+									adapterActive.notifyDataSetChanged();
+								} else {
+									item.status = "active";
+									ordersActive.add(0, ordersFinished.remove(position));
+									adapterFinished.notifyDataSetChanged();
+								}
+							} else {
+
+							}
+
+							dismissProgressDialog();
+						}
+					});
+
+					VolleySingleton.getInstance(getApplicationContext()).addToRequestQueue(loginRequest);
 
 				}
 			});
