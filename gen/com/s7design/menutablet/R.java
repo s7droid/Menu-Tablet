@@ -32,19 +32,22 @@ containing a value of this type.
     }
     public static final class drawable {
         public static final int border_square_orange_white_fill=0x7f020000;
-        public static final int gradient_list_item=0x7f020001;
-        public static final int ic_launcher=0x7f020002;
-        public static final int logo=0x7f020003;
-        public static final int logo_menu_small=0x7f020004;
-        public static final int orange_text_selector=0x7f020005;
-        public static final int rounded_orange_button_selected=0x7f020006;
-        public static final int rounded_orange_button_selector=0x7f020007;
-        public static final int rounded_orange_button_shape=0x7f020008;
-        public static final int sign_in_lock_icon=0x7f020009;
-        public static final int sign_in_user_icon=0x7f02000a;
-        public static final int square_orange_button_selector=0x7f02000b;
-        public static final int square_orange_button_shape=0x7f02000c;
-        public static final int square_orange_button_shape_disabled=0x7f02000d;
+        public static final int check=0x7f020001;
+        public static final int delete=0x7f020002;
+        public static final int gradient_list_item=0x7f020003;
+        public static final int ic_launcher=0x7f020004;
+        public static final int logo=0x7f020005;
+        public static final int logo_menu_small=0x7f020006;
+        public static final int orange_text_selector=0x7f020007;
+        public static final int refresh=0x7f020008;
+        public static final int rounded_orange_button_selected=0x7f020009;
+        public static final int rounded_orange_button_selector=0x7f02000a;
+        public static final int rounded_orange_button_shape=0x7f02000b;
+        public static final int sign_in_lock_icon=0x7f02000c;
+        public static final int sign_in_user_icon=0x7f02000d;
+        public static final int square_orange_button_selector=0x7f02000e;
+        public static final int square_orange_button_shape=0x7f02000f;
+        public static final int square_orange_button_shape_disabled=0x7f020010;
     }
     public static final class id {
         public static final int buttonCancel=0x7f07000a;
@@ -90,9 +93,11 @@ containing a value of this type.
     }
     public static final class string {
         public static final int app_name=0x7f050000;
+        public static final int dialog_body_network_problem=0x7f05000f;
         /**  Dialogs 
          */
         public static final int dialog_loading=0x7f05000d;
+        public static final int dialog_title_error=0x7f05000e;
         public static final int main_activity_email_hint=0x7f050002;
         public static final int main_activity_log_out=0x7f050006;
         /**  Main activity 

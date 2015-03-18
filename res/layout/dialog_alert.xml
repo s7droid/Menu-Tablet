@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:padding="10dp" >
 
-    <com.s7design.menu.views.MenuTextView
+    <com.s7design.menutablet.views.MenuTextView
         android:id="@+id/textViewTitleAlertDialog"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,7 +15,7 @@
         android:textColor="@color/menu_main_gray"
         android:textSize="20sp" />
 
-    <com.s7design.menu.views.MenuTextView
+    <com.s7design.menutablet.views.MenuTextView
         android:id="@+id/textViewbodyAlertDialog"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,7 +27,7 @@
         android:textColor="@color/menu_main_gray"
         android:textSize="18sp" />
 
-    <com.s7design.menu.views.MenuButton
+    <com.s7design.menutablet.views.MenuButton
         android:id="@+id/buttonOk"
         android:layout_width="100dp"
         android:layout_height="30dp"

@@ -15,7 +15,9 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.android.volley.Response.ErrorListener;
 import com.android.volley.Response.Listener;
+import com.android.volley.VolleyError;
 import com.s7design.menutablet.R;
 import com.s7design.menutablet.dataclasses.OrderItem;
 import com.s7design.menutablet.utils.Settings;
@@ -25,7 +27,6 @@ import com.s7design.menutablet.volley.requests.CompleteOrderRequest;
 import com.s7design.menutablet.volley.requests.GetOrdersRequest;
 import com.s7design.menutablet.volley.responses.CompleteOrderResponse;
 import com.s7design.menutablet.volley.responses.GetOrdersResponse;
-import com.s7design.menutablet.volley.responses.LoginResponse;
 
 public class OrderActivity extends BaseActivity {
 
@@ -157,6 +158,14 @@ public class OrderActivity extends BaseActivity {
 				}
 
 			}
+		}, new ErrorListener() {
+
+			@Override
+			public void onErrorResponse(VolleyError arg0) {
+
+				dismissProgressDialog();
+				showAlertDialog(R.string.dialog_title_error, R.string.dialog_body_network_problem);
+			}
 		});
 
 		VolleySingleton.getInstance(getApplicationContext()).addToRequestQueue(getOrdersRequest);
@@ -195,7 +204,14 @@ public class OrderActivity extends BaseActivity {
 				convertView = new OrderItemView(context, rowNumber);
 			}
 
-			((OrderItemView) convertView).setData(getItem(position));
+			OrderItem item = getItem(position);
+			if (item.status.equals("active")) {
+				((OrderItemView) convertView).setActionButtonResource(R.drawable.check);
+			} else {
+				((OrderItemView) convertView).setActionButtonResource(R.drawable.delete);
+			}
+
+			((OrderItemView) convertView).setData(item);
 			((OrderItemView) convertView).setButtonOnClickListener(position, new OnClickListener() {
 
 				@Override
@@ -234,6 +250,14 @@ public class OrderActivity extends BaseActivity {
 							}
 
 							dismissProgressDialog();
+						}
+					}, new ErrorListener() {
+
+						@Override
+						public void onErrorResponse(VolleyError arg0) {
+
+							dismissProgressDialog();
+							showAlertDialog(R.string.dialog_title_error, R.string.dialog_body_network_problem);
 						}
 					});
 

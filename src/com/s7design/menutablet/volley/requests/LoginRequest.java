@@ -12,14 +12,8 @@ import com.s7design.menutablet.volley.responses.LoginResponse;
 
 public class LoginRequest extends GsonRequest<LoginResponse> {
 
-	public LoginRequest(Activity context, Map<String, String> params, Listener<LoginResponse> listener) {
-		super(context, Request.Method.POST, "login", params, LoginResponse.class, listener, new ErrorListener() {
-
-			@Override
-			public void onErrorResponse(VolleyError arg0) {
-
-			}
-		});
+	public LoginRequest(Activity context, Map<String, String> params, Listener<LoginResponse> listener, ErrorListener errorListener) {
+		super(context, Request.Method.POST, "login", params, LoginResponse.class, listener, errorListener);
 	}
 
 }

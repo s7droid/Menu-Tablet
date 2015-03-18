@@ -55,6 +55,10 @@ public class OrderItemView extends LinearLayout {
 		}
 	}
 
+	public void setActionButtonResource(int res) {
+		imageButton.setImageResource(res);
+	}
+
 	public void setData(OrderItem order) {
 
 		int res = order.items.length % 3;

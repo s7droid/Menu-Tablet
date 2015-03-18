@@ -11,6 +11,8 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.android.volley.VolleyError;
+import com.android.volley.Response.ErrorListener;
 import com.android.volley.Response.Listener;
 import com.s7design.menutablet.R;
 import com.s7design.menutablet.utils.Settings;
@@ -35,6 +37,11 @@ public class MainActivity extends BaseActivity {
 		editTextEmail = (EditText) findViewById(R.id.editTextEmail);
 		editTextPassword = (EditText) findViewById(R.id.editTextPassword);
 
+		if (Settings.getAccessToken(this).length() > 0) {
+			startActivity(new Intent(MainActivity.this, OrderActivity.class));
+			finish();
+		}
+
 		buttonSignIn.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -58,11 +65,20 @@ public class MainActivity extends BaseActivity {
 							Settings.setAccessToken(MainActivity.this, loginResponse.accesstoken);
 
 							startActivity(new Intent(MainActivity.this, OrderActivity.class));
+							finish();
 						} else {
 
 						}
 
 						dismissProgressDialog();
+					}
+				}, new ErrorListener() {
+
+					@Override
+					public void onErrorResponse(VolleyError arg0) {
+
+						dismissProgressDialog();
+						showAlertDialog(R.string.dialog_title_error, R.string.dialog_body_network_problem);
 					}
 				});
 

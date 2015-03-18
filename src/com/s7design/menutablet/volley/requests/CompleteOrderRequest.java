@@ -12,14 +12,8 @@ import com.s7design.menutablet.volley.responses.CompleteOrderResponse;
 
 public class CompleteOrderRequest extends GsonRequest<CompleteOrderResponse> {
 
-	public CompleteOrderRequest(Activity context, Map<String, String> params, Listener<CompleteOrderResponse> listener) {
-		super(context, Request.Method.POST, "ordercomplete", params, CompleteOrderResponse.class, listener, new ErrorListener() {
-
-			@Override
-			public void onErrorResponse(VolleyError arg0) {
-				
-			}
-		});
+	public CompleteOrderRequest(Activity context, Map<String, String> params, Listener<CompleteOrderResponse> listener, ErrorListener errorListener) {
+		super(context, Request.Method.POST, "ordercomplete", params, CompleteOrderResponse.class, listener, errorListener);
 	}
 
 }
