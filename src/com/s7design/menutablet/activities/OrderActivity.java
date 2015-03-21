@@ -248,8 +248,6 @@ public class OrderActivity extends BaseActivity {
 				@Override
 				public void onClick(View v) {
 
-					showProgressDialogLoading();
-
 					final int position = (int) v.getTag();
 
 					Map<String, String> params = new HashMap<String, String>();
@@ -280,14 +278,12 @@ public class OrderActivity extends BaseActivity {
 
 							}
 
-							dismissProgressDialog();
 						}
 					}, new ErrorListener() {
 
 						@Override
 						public void onErrorResponse(VolleyError arg0) {
 
-							dismissProgressDialog();
 							showAlertDialog(R.string.dialog_title_error, R.string.dialog_body_network_problem);
 						}
 					});
