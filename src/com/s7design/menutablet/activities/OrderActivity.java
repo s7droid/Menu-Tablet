@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -35,6 +37,8 @@ public class OrderActivity extends BaseActivity {
 	private ListView listView;
 	private TextView textViewActive;
 	private TextView textViewFinished;
+	private TextView textViewLogOut;
+	private ImageButton imageButtonRefresh;
 
 	private ArrayList<OrderItem> ordersActive;
 	private ArrayList<OrderItem> ordersFinished;
@@ -56,6 +60,8 @@ public class OrderActivity extends BaseActivity {
 		listView = (ListView) findViewById(R.id.listView);
 		textViewActive = (TextView) findViewById(R.id.textViewActive);
 		textViewFinished = (TextView) findViewById(R.id.textViewFinished);
+		textViewLogOut = (TextView) findViewById(R.id.textViewLogOut);
+		imageButtonRefresh = (ImageButton) findViewById(R.id.imageButtonRefresh);
 
 		textViewActive.setOnClickListener(new OnClickListener() {
 
@@ -106,6 +112,32 @@ public class OrderActivity extends BaseActivity {
 				}
 			}
 		});
+
+		textViewLogOut.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+
+				Settings.setAccessToken(OrderActivity.this, "");
+				startActivity(new Intent(OrderActivity.this, MainActivity.class));
+				finish();
+			}
+		});
+
+		imageButtonRefresh.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				showProgressDialogLoading();
+				loadOrders();
+			}
+		});
+
+		loadOrders();
+
+	}
+
+	private void loadOrders() {
 
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("accesstoken", Settings.getAccessToken(this));
@@ -169,7 +201,6 @@ public class OrderActivity extends BaseActivity {
 		});
 
 		VolleySingleton.getInstance(getApplicationContext()).addToRequestQueue(getOrdersRequest);
-
 	}
 
 	class Adapter extends BaseAdapter {

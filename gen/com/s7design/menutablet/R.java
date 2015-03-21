@@ -50,36 +50,36 @@ containing a value of this type.
         public static final int square_orange_button_shape_disabled=0x7f020010;
     }
     public static final class id {
-        public static final int buttonCancel=0x7f07000a;
-        public static final int buttonOk=0x7f070009;
+        public static final int buttonCancel=0x7f07000b;
+        public static final int buttonOk=0x7f07000a;
         public static final int buttonSignIn=0x7f070002;
         public static final int editTextEmail=0x7f070000;
         public static final int editTextPassword=0x7f070001;
         public static final int imageButton=0x7f070012;
-        public static final int imageButtonRefresh=0x7f070003;
+        public static final int imageButtonRefresh=0x7f070004;
         public static final int imageView1=0x7f070014;
         public static final int imageView2=0x7f070018;
         public static final int imageView3=0x7f07001c;
         public static final int layout2=0x7f070017;
         public static final int layout3=0x7f07001b;
         public static final int layoutRowContainer=0x7f070011;
-        public static final int listView=0x7f070006;
-        public static final int progressBar=0x7f07000c;
-        public static final int textViewActive=0x7f070005;
-        public static final int textViewBodyProgressDialog=0x7f07000b;
-        public static final int textViewDesc1=0x7f07000e;
-        public static final int textViewDesc2=0x7f07000f;
-        public static final int textViewFinished=0x7f070004;
+        public static final int listView=0x7f070007;
+        public static final int progressBar=0x7f07000d;
+        public static final int textViewActive=0x7f070006;
+        public static final int textViewBodyProgressDialog=0x7f07000c;
+        public static final int textViewFinished=0x7f070005;
+        public static final int textViewLogOut=0x7f070003;
+        public static final int textViewName=0x7f07000f;
         public static final int textViewQuantity1=0x7f070016;
         public static final int textViewQuantity2=0x7f07001a;
         public static final int textViewQuantity3=0x7f07001e;
-        public static final int textViewTableNumber=0x7f07000d;
+        public static final int textViewTableNumber=0x7f07000e;
         public static final int textViewTime=0x7f070010;
         public static final int textViewTitle1=0x7f070015;
         public static final int textViewTitle2=0x7f070019;
         public static final int textViewTitle3=0x7f07001d;
-        public static final int textViewTitleAlertDialog=0x7f070007;
-        public static final int textViewbodyAlertDialog=0x7f070008;
+        public static final int textViewTitleAlertDialog=0x7f070008;
+        public static final int textViewbodyAlertDialog=0x7f070009;
         public static final int viewDivider=0x7f070013;
     }
     public static final class layout {

@@ -16,8 +16,7 @@ public class OrderItemView extends LinearLayout {
 	private static final String TAG = OrderItemView.class.getSimpleName();
 
 	private TextView textViewTableNumber;
-	private TextView textViewDesc1;
-	private TextView textViewDesc2;
+	private TextView textViewName;
 	private TextView textViewTime;
 	private LinearLayout layoutRowContainer;
 	private ImageButton imageButton;
@@ -34,13 +33,12 @@ public class OrderItemView extends LinearLayout {
 
 	private void init() {
 
-		Log.w(TAG, "init");
+		// Log.w(TAG, "init");
 
 		inflate(getContext(), R.layout.item_order, this);
 
 		textViewTableNumber = (TextView) findViewById(R.id.textViewTableNumber);
-		textViewDesc1 = (TextView) findViewById(R.id.textViewDesc1);
-		textViewDesc2 = (TextView) findViewById(R.id.textViewDesc2);
+		textViewName = (TextView) findViewById(R.id.textViewName);
 		textViewTime = (TextView) findViewById(R.id.textViewTime);
 		layoutRowContainer = (LinearLayout) findViewById(R.id.layoutRowContainer);
 		imageButton = (ImageButton) findViewById(R.id.imageButton);
@@ -60,6 +58,10 @@ public class OrderItemView extends LinearLayout {
 	}
 
 	public void setData(OrderItem order) {
+
+		textViewTableNumber.setText(order.tablenumber);
+		textViewName.setText(order.name);
+		textViewTime.setText(order.time);
 
 		int res = order.items.length % 3;
 		int length = order.items.length / 3 + (res > 0 ? 1 : 0);
@@ -85,13 +87,13 @@ public class OrderItemView extends LinearLayout {
 				((OrderItemRow) item).setData(i1, i2, i3);
 				if (item.getVisibility() != View.VISIBLE) {
 					item.setVisibility(View.VISIBLE);
-					Log.w(TAG, "set visible");
+					// Log.w(TAG, "set visible");
 				}
 
 			} else {
 				if (item.getVisibility() != View.GONE) {
 					item.setVisibility(View.GONE);
-					Log.w(TAG, "set gone");
+					// Log.w(TAG, "set gone");
 				}
 			}
 		}

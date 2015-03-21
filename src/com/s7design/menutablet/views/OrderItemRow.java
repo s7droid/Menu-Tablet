@@ -37,7 +37,7 @@ public class OrderItemRow extends LinearLayout {
 
 	private void init() {
 
-		Log.e(TAG, "init");
+//		Log.e(TAG, "init");
 
 		inflate(getContext(), R.layout.row_item_order, this);
 
@@ -54,7 +54,7 @@ public class OrderItemRow extends LinearLayout {
 
 		imageLoader = VolleySingleton.getInstance(getContext()).getImageLoader();
 
-		Log.d(TAG, "init done");
+//		Log.d(TAG, "init done");
 	}
 
 	public void showDivider() {
