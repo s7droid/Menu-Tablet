@@ -4,10 +4,15 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View.OnClickListener;
 
+import com.android.volley.VolleyError;
+import com.s7design.menutablet.R;
+import com.s7design.menutablet.app.MenuTablet;
+import com.s7design.menutablet.callbacks.OnVolleyErrorCallback;
 import com.s7design.menutablet.dialogs.AlertDialogFragment;
 import com.s7design.menutablet.dialogs.ProgressDialogFragment;
+import com.s7design.menutablet.volley.responses.GsonResponse;
 
-public class BaseActivity extends Activity {
+public class BaseActivity extends Activity implements OnVolleyErrorCallback {
 
 	private AlertDialogFragment alertDialog;
 	private ProgressDialogFragment progressDialog;
@@ -22,6 +27,20 @@ public class BaseActivity extends Activity {
 		progressDialog = new ProgressDialogFragment();
 		progressDialog.setFragmentManager(getFragmentManager(), this);
 
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+
+		MenuTablet.getInstance().registerOnVolleyErrorCallback(this);
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+
+		MenuTablet.getInstance().unregisterOnVolleyErrorCallback();
 	}
 
 	public void showAlertDialog(int title, int body) {
@@ -62,6 +81,20 @@ public class BaseActivity extends Activity {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public void onResponseError(GsonResponse response) {
+
+		dismissProgressDialog();
+		showAlertDialog(getString(R.string.dialog_title_error), getString(R.string.dialog_body_network_problem));
+	}
+
+	@Override
+	public void onVolleyError(VolleyError volleyError) {
+
+		dismissProgressDialog();
+		showAlertDialog(getString(R.string.dialog_title_error), getString(R.string.dialog_body_network_problem));
 	}
 
 }

@@ -64,6 +64,8 @@ public class OrderItemRow extends LinearLayout {
 	public void setData(Item item1, Item item2, Item item3) {
 
 		imageView1.setImageUrl(item1.imagesrc, imageLoader);
+		imageView1.setDefaultImageResId(R.drawable.no_image);
+		imageView1.setErrorImageResId(R.drawable.no_image);
 		textViewTitle1.setText(item1.itemname);
 		textViewQuantity1.setText(item1.amount + " " + item1.label);
 		if (item1.label.equals("LARGE")||item1.label.equals("BOTTLE"))
@@ -74,6 +76,8 @@ public class OrderItemRow extends LinearLayout {
 		if (item2 != null) {
 			imageView2.setVisibility(View.VISIBLE);
 			imageView2.setImageUrl(item2.imagesrc, imageLoader);
+			imageView2.setDefaultImageResId(R.drawable.no_image);
+			imageView2.setErrorImageResId(R.drawable.no_image);
 			textViewTitle2.setText(item2.itemname);
 			textViewQuantity2.setText(item2.amount + " " + item2.label);
 			if (item2.label.equals("LARGE")||item2.label.equals("BOTTLE"))
@@ -89,6 +93,8 @@ public class OrderItemRow extends LinearLayout {
 		if (item3 != null) {
 			imageView3.setVisibility(View.VISIBLE);
 			imageView3.setImageUrl(item3.imagesrc, imageLoader);
+			imageView3.setDefaultImageResId(R.drawable.no_image);
+			imageView3.setErrorImageResId(R.drawable.no_image);
 			textViewTitle3.setText(item3.itemname);
 			textViewQuantity3.setText(item3.amount + " " + item3.label);
 			if (item3.label.equals("LARGE")||item3.label.equals("BOTTLE"))

@@ -30,6 +30,9 @@ containing a value of this type.
         public static final int menu_transparent=0x7f040008;
         public static final int white=0x7f040009;
     }
+    public static final class dimen {
+        public static final int font_size_Item_title=0x7f050000;
+    }
     public static final class drawable {
         public static final int border_square_orange_white_fill=0x7f020000;
         public static final int check=0x7f020001;
@@ -38,49 +41,50 @@ containing a value of this type.
         public static final int ic_launcher=0x7f020004;
         public static final int logo=0x7f020005;
         public static final int logo_menu_small=0x7f020006;
-        public static final int orange_text_selector=0x7f020007;
-        public static final int refresh=0x7f020008;
-        public static final int rounded_orange_button_selected=0x7f020009;
-        public static final int rounded_orange_button_selector=0x7f02000a;
-        public static final int rounded_orange_button_shape=0x7f02000b;
-        public static final int sign_in_lock_icon=0x7f02000c;
-        public static final int sign_in_user_icon=0x7f02000d;
-        public static final int square_orange_button_selector=0x7f02000e;
-        public static final int square_orange_button_shape=0x7f02000f;
-        public static final int square_orange_button_shape_disabled=0x7f020010;
+        public static final int no_image=0x7f020007;
+        public static final int orange_text_selector=0x7f020008;
+        public static final int refresh=0x7f020009;
+        public static final int rounded_orange_button_selected=0x7f02000a;
+        public static final int rounded_orange_button_selector=0x7f02000b;
+        public static final int rounded_orange_button_shape=0x7f02000c;
+        public static final int sign_in_lock_icon=0x7f02000d;
+        public static final int sign_in_user_icon=0x7f02000e;
+        public static final int square_orange_button_selector=0x7f02000f;
+        public static final int square_orange_button_shape=0x7f020010;
+        public static final int square_orange_button_shape_disabled=0x7f020011;
     }
     public static final class id {
-        public static final int buttonCancel=0x7f07000b;
-        public static final int buttonOk=0x7f07000a;
-        public static final int buttonSignIn=0x7f070002;
-        public static final int editTextEmail=0x7f070000;
-        public static final int editTextPassword=0x7f070001;
-        public static final int imageButton=0x7f070012;
-        public static final int imageButtonRefresh=0x7f070004;
-        public static final int imageView1=0x7f070014;
-        public static final int imageView2=0x7f070018;
-        public static final int imageView3=0x7f07001c;
-        public static final int layout2=0x7f070017;
-        public static final int layout3=0x7f07001b;
-        public static final int layoutRowContainer=0x7f070011;
-        public static final int listView=0x7f070007;
-        public static final int progressBar=0x7f07000d;
-        public static final int textViewActive=0x7f070006;
-        public static final int textViewBodyProgressDialog=0x7f07000c;
-        public static final int textViewFinished=0x7f070005;
-        public static final int textViewLogOut=0x7f070003;
-        public static final int textViewName=0x7f07000f;
-        public static final int textViewQuantity1=0x7f070016;
-        public static final int textViewQuantity2=0x7f07001a;
-        public static final int textViewQuantity3=0x7f07001e;
-        public static final int textViewTableNumber=0x7f07000e;
-        public static final int textViewTime=0x7f070010;
-        public static final int textViewTitle1=0x7f070015;
-        public static final int textViewTitle2=0x7f070019;
-        public static final int textViewTitle3=0x7f07001d;
-        public static final int textViewTitleAlertDialog=0x7f070008;
-        public static final int textViewbodyAlertDialog=0x7f070009;
-        public static final int viewDivider=0x7f070013;
+        public static final int buttonCancel=0x7f08000b;
+        public static final int buttonOk=0x7f08000a;
+        public static final int buttonSignIn=0x7f080002;
+        public static final int editTextEmail=0x7f080000;
+        public static final int editTextPassword=0x7f080001;
+        public static final int imageButton=0x7f080012;
+        public static final int imageButtonRefresh=0x7f080004;
+        public static final int imageView1=0x7f080014;
+        public static final int imageView2=0x7f080018;
+        public static final int imageView3=0x7f08001c;
+        public static final int layout2=0x7f080017;
+        public static final int layout3=0x7f08001b;
+        public static final int layoutRowContainer=0x7f080011;
+        public static final int listView=0x7f080007;
+        public static final int progressBar=0x7f08000d;
+        public static final int textViewActive=0x7f080006;
+        public static final int textViewBodyProgressDialog=0x7f08000c;
+        public static final int textViewFinished=0x7f080005;
+        public static final int textViewLogOut=0x7f080003;
+        public static final int textViewName=0x7f08000f;
+        public static final int textViewQuantity1=0x7f080016;
+        public static final int textViewQuantity2=0x7f08001a;
+        public static final int textViewQuantity3=0x7f08001e;
+        public static final int textViewTableNumber=0x7f08000e;
+        public static final int textViewTime=0x7f080010;
+        public static final int textViewTitle1=0x7f080015;
+        public static final int textViewTitle2=0x7f080019;
+        public static final int textViewTitle3=0x7f08001d;
+        public static final int textViewTitleAlertDialog=0x7f080008;
+        public static final int textViewbodyAlertDialog=0x7f080009;
+        public static final int viewDivider=0x7f080013;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -92,28 +96,28 @@ containing a value of this type.
         public static final int row_item_order=0x7f030006;
     }
     public static final class string {
-        public static final int app_name=0x7f050000;
-        public static final int dialog_body_network_problem=0x7f05000f;
+        public static final int app_name=0x7f060000;
+        public static final int dialog_body_network_problem=0x7f06000f;
         /**  Dialogs 
          */
-        public static final int dialog_loading=0x7f05000d;
-        public static final int dialog_title_error=0x7f05000e;
-        public static final int main_activity_email_hint=0x7f050002;
-        public static final int main_activity_log_out=0x7f050006;
+        public static final int dialog_loading=0x7f06000d;
+        public static final int dialog_title_error=0x7f06000e;
+        public static final int main_activity_email_hint=0x7f060002;
+        public static final int main_activity_log_out=0x7f060006;
         /**  Main activity 
          */
-        public static final int main_activity_menu=0x7f050001;
-        public static final int main_activity_password_hint=0x7f050003;
-        public static final int main_activity_service_timeline=0x7f050005;
-        public static final int main_activity_sign_in=0x7f050004;
-        public static final int order_activity_active=0x7f05000c;
-        public static final int order_activity_finished=0x7f05000b;
-        public static final int order_activity_order_info=0x7f050009;
-        public static final int order_activity_orders_to_serve=0x7f05000a;
+        public static final int main_activity_menu=0x7f060001;
+        public static final int main_activity_password_hint=0x7f060003;
+        public static final int main_activity_service_timeline=0x7f060005;
+        public static final int main_activity_sign_in=0x7f060004;
+        public static final int order_activity_active=0x7f06000c;
+        public static final int order_activity_finished=0x7f06000b;
+        public static final int order_activity_order_info=0x7f060009;
+        public static final int order_activity_orders_to_serve=0x7f06000a;
         /**  Order activity 
          */
-        public static final int order_activity_table=0x7f050007;
-        public static final int order_activity_time=0x7f050008;
+        public static final int order_activity_table=0x7f060007;
+        public static final int order_activity_time=0x7f060008;
     }
     public static final class style {
         /** 
@@ -121,12 +125,12 @@ containing a value of this type.
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     
          */
-        public static final int AppBaseTheme=0x7f060000;
+        public static final int AppBaseTheme=0x7f070000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f060001;
-        public static final int Menu_Button_Orange=0x7f060002;
+        public static final int AppTheme=0x7f070001;
+        public static final int Menu_Button_Orange=0x7f070002;
     }
     public static final class styleable {
         /** Attributes that can be used with a text_font.

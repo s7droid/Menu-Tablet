@@ -49,7 +49,7 @@
                     android:lineSpacingMultiplier="1.6"
                     android:lines="2"
                     android:textColor="@color/menu_main_gray"
-                    android:textSize="22sp" />
+                    android:textSize="@dimen/font_size_Item_title" />
 
                 <com.s7design.menutablet.views.MenuTextView
                     android:id="@+id/textViewQuantity1"
@@ -59,7 +59,7 @@
                     android:ellipsize="end"
                     android:gravity="bottom"
                     android:singleLine="true"
-                    android:textSize="22sp" />
+                    android:textSize="@dimen/font_size_Item_title" />
             </LinearLayout>
         </LinearLayout>
 

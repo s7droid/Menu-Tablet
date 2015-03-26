@@ -22,6 +22,7 @@ import com.google.gson.JsonSyntaxException;
 import com.s7design.menutablet.app.MenuTablet;
 import com.s7design.menutablet.utils.Utils;
 import com.s7design.menutablet.volley.Constants;
+import com.s7design.menutablet.volley.responses.GsonResponse;
 
 public class GsonRequest<T> extends Request<T> {
 
@@ -98,7 +99,15 @@ public class GsonRequest<T> extends Request<T> {
 
 	@Override
 	protected void deliverResponse(T response) {
-		listener.onResponse(response);
+
+		GsonResponse gsonResponse = GsonResponse.class.cast(response);
+		String errordata = gsonResponse.errordata;
+
+		if (errordata != null && errordata.equals("yes")) {
+			MenuTablet.getInstance().onResponseErrorReceived(gsonResponse);
+		} else {
+			listener.onResponse(response);
+		}
 	}
 
 	@Override
@@ -109,6 +118,8 @@ public class GsonRequest<T> extends Request<T> {
 			if (error == null || error.networkResponse == null) {
 
 				Log.w(TAG, "deliverError(), error message " + error.getMessage());
+				if (error.networkResponse == null)
+					MenuTablet.getInstance().onVolleyErrorReceived(error);
 				return;
 			}
 

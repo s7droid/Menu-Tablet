@@ -13,6 +13,7 @@ import android.support.v4.util.Pair;
 import com.android.volley.VolleyError;
 import com.s7design.menutablet.callbacks.OnVolleyErrorCallback;
 import com.s7design.menutablet.dataclasses.DataManager;
+import com.s7design.menutablet.volley.responses.GsonResponse;
 
 public class MenuTablet extends Application {
 
@@ -121,6 +122,12 @@ public class MenuTablet extends Application {
 
 	public void unregisterOnVolleyErrorCallback() {
 		this.onVolleyErrorCallback = null;
+	}
+	
+	public void onResponseErrorReceived(GsonResponse response) {
+
+		if (onVolleyErrorCallback != null)
+			onVolleyErrorCallback.onResponseError(response);
 	}
 
 	public void onVolleyErrorReceived(VolleyError error) {
