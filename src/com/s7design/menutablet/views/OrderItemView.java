@@ -60,7 +60,7 @@ public class OrderItemView extends LinearLayout {
 	public void setData(OrderItem order) {
 
 		textViewTableNumber.setText(order.tablenumber);
-		textViewName.setText(order.name);
+		textViewName.setText(order.name + "\n" + order.name);
 		textViewTime.setText(order.time);
 
 		int res = order.items.length % 3;

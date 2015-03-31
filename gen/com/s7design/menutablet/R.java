@@ -31,7 +31,7 @@ containing a value of this type.
         public static final int white=0x7f040009;
     }
     public static final class dimen {
-        public static final int font_size_Item_title=0x7f050000;
+        public static final int font_size_item_title=0x7f050000;
     }
     public static final class drawable {
         public static final int border_square_orange_white_fill=0x7f020000;
@@ -131,6 +131,7 @@ containing a value of this type.
          */
         public static final int AppTheme=0x7f070001;
         public static final int Menu_Button_Orange=0x7f070002;
+        public static final int Menu_Text_View_Shadow=0x7f070003;
     }
     public static final class styleable {
         /** Attributes that can be used with a text_font.

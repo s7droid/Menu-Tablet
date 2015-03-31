@@ -2,9 +2,9 @@
 <resources>
 
     <color name="menu_main_orange">#ff6600 </color>
-    <color name="menu_main_orange_dark">#ffD95700 </color>
+    <color name="menu_main_orange_dark">#ffe35b00 </color>
     <color name="menu_main_gray">#ff666666</color>
-    <color name="menu_main_gray_light">#ffb4b4b4</color>
+    <color name="menu_main_gray_light">#ff999999</color>
     <color name="menu_main_gray_light_divider">#ffcccccc</color>
     <color name="menu_main_gray_lighter">#ffEEEEEE</color>
     <color name="menu_main_gray_light_transparent">#44b4b4b4</color>

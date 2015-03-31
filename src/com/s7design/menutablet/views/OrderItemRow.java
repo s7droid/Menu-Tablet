@@ -1,6 +1,10 @@
 package com.s7design.menutablet.views;
 
 import android.content.Context;
+import android.graphics.Typeface;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.StyleSpan;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -37,8 +41,6 @@ public class OrderItemRow extends LinearLayout {
 
 	private void init() {
 
-//		Log.e(TAG, "init");
-
 		inflate(getContext(), R.layout.row_item_order, this);
 
 		imageView1 = (NetworkImageView) findViewById(R.id.imageView1);
@@ -53,8 +55,6 @@ public class OrderItemRow extends LinearLayout {
 		viewDivider = (View) findViewById(R.id.viewDivider);
 
 		imageLoader = VolleySingleton.getInstance(getContext()).getImageLoader();
-
-//		Log.d(TAG, "init done");
 	}
 
 	public void showDivider() {
@@ -67,8 +67,12 @@ public class OrderItemRow extends LinearLayout {
 		imageView1.setDefaultImageResId(R.drawable.no_image);
 		imageView1.setErrorImageResId(R.drawable.no_image);
 		textViewTitle1.setText(item1.itemname);
-		textViewQuantity1.setText(item1.amount + " " + item1.label);
-		if (item1.label.equals("LARGE")||item1.label.equals("BOTTLE"))
+
+		String amount1 = String.valueOf(item1.amount);
+		SpannableString ss1 = new SpannableString(amount1 + " " + item1.label);
+		ss1.setSpan(new StyleSpan(Typeface.BOLD), 0, amount1.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+		textViewQuantity1.setText(ss1);
+		if (item1.label.equals("LARGE") || item1.label.equals("BOTTLE"))
 			textViewQuantity1.setTextColor(getResources().getColor(R.color.menu_main_orange));
 		else
 			textViewQuantity1.setTextColor(getResources().getColor(R.color.menu_main_gray));
@@ -79,8 +83,12 @@ public class OrderItemRow extends LinearLayout {
 			imageView2.setDefaultImageResId(R.drawable.no_image);
 			imageView2.setErrorImageResId(R.drawable.no_image);
 			textViewTitle2.setText(item2.itemname);
-			textViewQuantity2.setText(item2.amount + " " + item2.label);
-			if (item2.label.equals("LARGE")||item2.label.equals("BOTTLE"))
+
+			String amount2 = String.valueOf(item2.amount);
+			SpannableString ss2 = new SpannableString(amount2 + " " + item2.label);
+			ss2.setSpan(new StyleSpan(Typeface.BOLD), 0, amount2.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+			textViewQuantity2.setText(ss2);
+			if (item2.label.equals("LARGE") || item2.label.equals("BOTTLE"))
 				textViewQuantity2.setTextColor(getResources().getColor(R.color.menu_main_orange));
 			else
 				textViewQuantity2.setTextColor(getResources().getColor(R.color.menu_main_gray));
@@ -96,8 +104,12 @@ public class OrderItemRow extends LinearLayout {
 			imageView3.setDefaultImageResId(R.drawable.no_image);
 			imageView3.setErrorImageResId(R.drawable.no_image);
 			textViewTitle3.setText(item3.itemname);
-			textViewQuantity3.setText(item3.amount + " " + item3.label);
-			if (item3.label.equals("LARGE")||item3.label.equals("BOTTLE"))
+
+			String amount3 = String.valueOf(item3.amount);
+			SpannableString ss3 = new SpannableString(amount3 + " " + item3.label);
+			ss3.setSpan(new StyleSpan(Typeface.BOLD), 0, amount3.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+			textViewQuantity3.setText(ss3);
+			if (item3.label.equals("LARGE") || item3.label.equals("BOTTLE"))
 				textViewQuantity3.setTextColor(getResources().getColor(R.color.menu_main_orange));
 			else
 				textViewQuantity3.setTextColor(getResources().getColor(R.color.menu_main_gray));
