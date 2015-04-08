@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <dimen name="font_size_item_title">22sp</dimen>
+    <dimen name="font_size_item_title">24sp</dimen>
 
 </resources>

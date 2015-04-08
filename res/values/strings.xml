@@ -8,6 +8,7 @@
     <string name="main_activity_password_hint">Password</string>
     <string name="main_activity_sign_in">SIGN IN</string>
     <string name="main_activity_service_timeline">SERVICE TIMELINE</string>
+    <string name="main_activity_service_timeline_past_orders">SERVICE TIMELINE - PAST ORDERS</string>
     <string name="main_activity_log_out">LOG OUT</string>
 
     <!-- Order activity -->
@@ -15,6 +16,7 @@
     <string name="order_activity_time">TIME</string>
     <string name="order_activity_order_info">Order info</string>
     <string name="order_activity_orders_to_serve">Orders to serve</string>
+    <string name="order_activity_served_orders">Served orders</string>
     <string name="order_activity_finished">Finished</string>
     <string name="order_activity_active">Active</string>
 

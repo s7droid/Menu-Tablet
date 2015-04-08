@@ -6,6 +6,7 @@ import java.util.Map;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -38,6 +39,9 @@ public class OrderActivity extends BaseActivity {
 	private TextView textViewActive;
 	private TextView textViewFinished;
 	private TextView textViewLogOut;
+	private TextView textViewServedOrders;
+	private TextView textViewServiceTimeline;
+	
 	private ImageButton imageButtonRefresh;
 
 	private ArrayList<OrderItem> ordersActive;
@@ -61,6 +65,9 @@ public class OrderActivity extends BaseActivity {
 		textViewActive = (TextView) findViewById(R.id.textViewActive);
 		textViewFinished = (TextView) findViewById(R.id.textViewFinished);
 		textViewLogOut = (TextView) findViewById(R.id.textViewLogOut);
+		textViewServedOrders = (TextView) findViewById(R.id.textViewOrderActivityServedOrders);
+		textViewServiceTimeline = (TextView) findViewById(R.id.textViewServiceTimeline);
+		
 		imageButtonRefresh = (ImageButton) findViewById(R.id.imageButtonRefresh);
 
 		textViewActive.setOnClickListener(new OnClickListener() {
@@ -72,10 +79,14 @@ public class OrderActivity extends BaseActivity {
 
 				if (!isActive) {
 					isActive = true;
+					textViewServedOrders.setText(getResources().getString(R.string.order_activity_orders_to_serve));
 					showProgressDialogLoading();
 					textViewActive.setTextColor(getResources().getColor(R.color.menu_main_orange));
+					textViewActive.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/GothamRounded-Medium.otf"));
 					textViewFinished.setTextColor(getResources().getColor(R.color.menu_main_gray_light));
-
+					textViewFinished.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/GothamRounded-Book.otf"));
+					textViewServiceTimeline.setText(getResources().getString(R.string.main_activity_service_timeline));
+					
 					listView.setAdapter(adapterActive);
 					listView.post(new Runnable() {
 
@@ -84,7 +95,7 @@ public class OrderActivity extends BaseActivity {
 							dismissProgressDialog();
 						}
 					});
-				}
+				} 
 			}
 		});
 
@@ -98,9 +109,13 @@ public class OrderActivity extends BaseActivity {
 				if (isActive) {
 					isActive = false;
 					showProgressDialogLoading();
+					textViewServedOrders.setText(getResources().getString(R.string.order_activity_served_orders));
 					textViewActive.setTextColor(getResources().getColor(R.color.menu_main_gray_light));
+					textViewActive.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/GothamRounded-Book.otf"));
 					textViewFinished.setTextColor(getResources().getColor(R.color.menu_main_orange));
-
+					textViewFinished.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/GothamRounded-Medium.otf"));
+					textViewServiceTimeline.setText(getResources().getString(R.string.main_activity_service_timeline_past_orders));
+					
 					listView.setAdapter(adapterFinished);
 					listView.post(new Runnable() {
 
@@ -129,6 +144,15 @@ public class OrderActivity extends BaseActivity {
 			@Override
 			public void onClick(View v) {
 				showProgressDialogLoading();
+				
+				isActive = true;
+				textViewServedOrders.setText(getResources().getString(R.string.order_activity_orders_to_serve));
+				showProgressDialogLoading();
+				textViewActive.setTextColor(getResources().getColor(R.color.menu_main_orange));
+				textViewActive.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/GothamRounded-Medium.otf"));
+				textViewFinished.setTextColor(getResources().getColor(R.color.menu_main_gray_light));
+				textViewFinished.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/GothamRounded-Book.otf"));
+				
 				loadOrders();
 			}
 		});

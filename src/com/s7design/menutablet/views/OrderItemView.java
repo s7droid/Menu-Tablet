@@ -18,6 +18,8 @@ public class OrderItemView extends LinearLayout {
 	private TextView textViewTableNumber;
 	private TextView textViewName;
 	private TextView textViewTime;
+	private TextView textViewTableNumberTitle;
+	private TextView textViewTimeTitle;
 	private LinearLayout layoutRowContainer;
 	private ImageButton imageButton;
 
@@ -38,8 +40,10 @@ public class OrderItemView extends LinearLayout {
 		inflate(getContext(), R.layout.item_order, this);
 
 		textViewTableNumber = (TextView) findViewById(R.id.textViewTableNumber);
+		textViewTableNumberTitle = (TextView) findViewById(R.id.textviewTableNumberTitle);
 		textViewName = (TextView) findViewById(R.id.textViewName);
 		textViewTime = (TextView) findViewById(R.id.textViewTime);
+		textViewTimeTitle = (TextView) findViewById(R.id.textViewTimeTitle);
 		layoutRowContainer = (LinearLayout) findViewById(R.id.layoutRowContainer);
 		imageButton = (ImageButton) findViewById(R.id.imageButton);
 
@@ -63,6 +67,20 @@ public class OrderItemView extends LinearLayout {
 		textViewName.setText(order.name + "\n" + order.name);
 		textViewTime.setText(order.time);
 
+		if(!order.status.contains("active")){
+			textViewTableNumber.setTextColor(getResources().getColor(R.color.menu_main_gray));
+			textViewTableNumberTitle.setTextColor(getResources().getColor(R.color.menu_main_gray));
+			textViewName.setTextColor(getResources().getColor(R.color.menu_main_gray));
+			textViewTime.setTextColor(getResources().getColor(R.color.menu_main_gray));
+			textViewTimeTitle.setTextColor(getResources().getColor(R.color.menu_main_gray));
+		}else{
+			textViewTableNumber.setTextColor(getResources().getColor(R.color.menu_main_orange));
+			textViewTableNumberTitle.setTextColor(getResources().getColor(R.color.menu_main_orange));
+			textViewName.setTextColor(getResources().getColor(R.color.menu_main_orange));
+			textViewTime.setTextColor(getResources().getColor(R.color.menu_main_orange));
+			textViewTimeTitle.setTextColor(getResources().getColor(R.color.menu_main_orange));
+		}
+		
 		int res = order.items.length % 3;
 		int length = order.items.length / 3 + (res > 0 ? 1 : 0);
 

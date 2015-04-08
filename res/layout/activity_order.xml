@@ -7,7 +7,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="65dp"
+        android:layout_height="60dp"
         android:background="@color/menu_main_orange"
         android:orientation="horizontal" >
 
@@ -27,6 +27,7 @@
                 android:src="@drawable/logo" />
 
             <com.s7design.menutablet.views.MenuTextView
+                style="@style/Menu_Text_View_Shadow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/main_activity_menu"
@@ -40,21 +41,24 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_vertical"
-            android:paddingLeft="30dp"
-            android:paddingRight="30dp" >
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp" >
 
             <com.s7design.menutablet.views.MenuTextView
+                style="@style/Menu_Text_View_Shadow"
+                android:id="@+id/textViewServiceTimeline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:text="@string/main_activity_service_timeline"
                 android:textColor="@color/white"
-                android:textSize="26sp"
+                android:textSize="21sp"
                 android:textStyle="bold" />
 
             <com.s7design.menutablet.views.MenuTextView
                 android:id="@+id/textViewLogOut"
+                style="@style/Menu_Text_View_Shadow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -64,13 +68,13 @@
                 android:paddingTop="10dp"
                 android:text="@string/main_activity_log_out"
                 android:textColor="@color/white"
-                android:textSize="19sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <ImageButton
                 android:id="@+id/imageButtonRefresh"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:background="@null"
@@ -100,7 +104,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="-5dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal" >
 
@@ -114,10 +119,11 @@
                 <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_weight="1" >
 
                     <com.s7design.menutablet.views.MenuTextView
+                        android:id="@+id/textViewOrderActivityServedOrders"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
@@ -159,7 +165,8 @@
                             android:padding="10dp"
                             android:text="@string/order_activity_active"
                             android:textColor="@color/menu_main_orange"
-                            android:textSize="30sp" />
+                            android:textSize="30sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
                 </RelativeLayout>
             </LinearLayout>
@@ -168,8 +175,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="15dp"
                 android:background="@color/menu_main_orange" />
 
             <ListView
@@ -177,7 +184,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginRight="10dp"
                 android:layout_weight="1"
                 android:divider="@null"
                 android:dividerHeight="0dp" >
