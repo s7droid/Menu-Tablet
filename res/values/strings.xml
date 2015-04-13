@@ -24,5 +24,5 @@
     <string name="dialog_loading">Loading&#8230;</string>
     <string name="dialog_title_error">Error</string>
     <string name="dialog_body_network_problem">Network problem, please try again.</string>
-
+	<string name="dismiss">DISMISS</string>
 </resources>

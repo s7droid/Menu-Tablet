@@ -10,11 +10,13 @@ import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -41,7 +43,8 @@ public class OrderActivity extends BaseActivity {
 	private TextView textViewLogOut;
 	private TextView textViewServedOrders;
 	private TextView textViewServiceTimeline;
-	
+	private LinearLayout globalContainer;
+
 	private ImageButton imageButtonRefresh;
 
 	private ArrayList<OrderItem> ordersActive;
@@ -54,6 +57,9 @@ public class OrderActivity extends BaseActivity {
 
 	private boolean isActive = true;
 
+	private GestureDetector gestureDetector;
+	View.OnTouchListener gestureListener;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -61,14 +67,23 @@ public class OrderActivity extends BaseActivity {
 
 		showProgressDialogLoading();
 
+		globalContainer = (LinearLayout) findViewById(R.id.globalContainer);
 		listView = (ListView) findViewById(R.id.listView);
 		textViewActive = (TextView) findViewById(R.id.textViewActive);
 		textViewFinished = (TextView) findViewById(R.id.textViewFinished);
 		textViewLogOut = (TextView) findViewById(R.id.textViewLogOut);
 		textViewServedOrders = (TextView) findViewById(R.id.textViewOrderActivityServedOrders);
 		textViewServiceTimeline = (TextView) findViewById(R.id.textViewServiceTimeline);
-		
+
 		imageButtonRefresh = (ImageButton) findViewById(R.id.imageButtonRefresh);
+
+		// gestureListener = new View.OnTouchListener() {
+		// public boolean onTouch(View v, MotionEvent event) {
+		// System.out.println("CALLED oN TOUCH WHERE IT SHOULD");
+		// gestureDetector.onTouchEvent(event);
+		// return true;
+		// }
+		// };
 
 		textViewActive.setOnClickListener(new OnClickListener() {
 
@@ -79,14 +94,20 @@ public class OrderActivity extends BaseActivity {
 
 				if (!isActive) {
 					isActive = true;
-					textViewServedOrders.setText(getResources().getString(R.string.order_activity_orders_to_serve));
+					textViewServedOrders.setText(getResources().getString(
+							R.string.order_activity_orders_to_serve));
 					showProgressDialogLoading();
-					textViewActive.setTextColor(getResources().getColor(R.color.menu_main_orange));
-					textViewActive.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/GothamRounded-Medium.otf"));
-					textViewFinished.setTextColor(getResources().getColor(R.color.menu_main_gray_light));
-					textViewFinished.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/GothamRounded-Book.otf"));
-					textViewServiceTimeline.setText(getResources().getString(R.string.main_activity_service_timeline));
-					
+					textViewActive.setTextColor(getResources().getColor(
+							R.color.menu_main_orange));
+					textViewActive.setTypeface(Typeface.createFromAsset(
+							getAssets(), "fonts/GothamRounded-Medium.otf"));
+					textViewFinished.setTextColor(getResources().getColor(
+							R.color.menu_main_gray_light));
+					textViewFinished.setTypeface(Typeface.createFromAsset(
+							getAssets(), "fonts/GothamRounded-Book.otf"));
+					textViewServiceTimeline.setText(getResources().getString(
+							R.string.main_activity_service_timeline));
+
 					listView.setAdapter(adapterActive);
 					listView.post(new Runnable() {
 
@@ -95,7 +116,7 @@ public class OrderActivity extends BaseActivity {
 							dismissProgressDialog();
 						}
 					});
-				} 
+				}
 			}
 		});
 
@@ -109,13 +130,21 @@ public class OrderActivity extends BaseActivity {
 				if (isActive) {
 					isActive = false;
 					showProgressDialogLoading();
-					textViewServedOrders.setText(getResources().getString(R.string.order_activity_served_orders));
-					textViewActive.setTextColor(getResources().getColor(R.color.menu_main_gray_light));
-					textViewActive.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/GothamRounded-Book.otf"));
-					textViewFinished.setTextColor(getResources().getColor(R.color.menu_main_orange));
-					textViewFinished.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/GothamRounded-Medium.otf"));
-					textViewServiceTimeline.setText(getResources().getString(R.string.main_activity_service_timeline_past_orders));
-					
+					textViewServedOrders.setText(getResources().getString(
+							R.string.order_activity_served_orders));
+					textViewActive.setTextColor(getResources().getColor(
+							R.color.menu_main_gray_light));
+					textViewActive.setTypeface(Typeface.createFromAsset(
+							getAssets(), "fonts/GothamRounded-Book.otf"));
+					textViewFinished.setTextColor(getResources().getColor(
+							R.color.menu_main_orange));
+					textViewFinished.setTypeface(Typeface.createFromAsset(
+							getAssets(), "fonts/GothamRounded-Medium.otf"));
+					textViewServiceTimeline
+							.setText(getResources()
+									.getString(
+											R.string.main_activity_service_timeline_past_orders));
+
 					listView.setAdapter(adapterFinished);
 					listView.post(new Runnable() {
 
@@ -144,15 +173,20 @@ public class OrderActivity extends BaseActivity {
 			@Override
 			public void onClick(View v) {
 				showProgressDialogLoading();
-				
+
 				isActive = true;
-				textViewServedOrders.setText(getResources().getString(R.string.order_activity_orders_to_serve));
+				textViewServedOrders.setText(getResources().getString(
+						R.string.order_activity_orders_to_serve));
 				showProgressDialogLoading();
-				textViewActive.setTextColor(getResources().getColor(R.color.menu_main_orange));
-				textViewActive.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/GothamRounded-Medium.otf"));
-				textViewFinished.setTextColor(getResources().getColor(R.color.menu_main_gray_light));
-				textViewFinished.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/GothamRounded-Book.otf"));
-				
+				textViewActive.setTextColor(getResources().getColor(
+						R.color.menu_main_orange));
+				textViewActive.setTypeface(Typeface.createFromAsset(
+						getAssets(), "fonts/GothamRounded-Medium.otf"));
+				textViewFinished.setTextColor(getResources().getColor(
+						R.color.menu_main_gray_light));
+				textViewFinished.setTypeface(Typeface.createFromAsset(
+						getAssets(), "fonts/GothamRounded-Book.otf"));
+
 				loadOrders();
 			}
 		});
@@ -166,65 +200,93 @@ public class OrderActivity extends BaseActivity {
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("accesstoken", Settings.getAccessToken(this));
 
-		GetOrdersRequest getOrdersRequest = new GetOrdersRequest(OrderActivity.this, params, new Listener<GetOrdersResponse>() {
+		GetOrdersRequest getOrdersRequest = new GetOrdersRequest(
+				OrderActivity.this, params, new Listener<GetOrdersResponse>() {
 
-			@Override
-			public void onResponse(final GetOrdersResponse getOrdersResponse) {
+					@Override
+					public void onResponse(
+							final GetOrdersResponse getOrdersResponse) {
 
-				if (getOrdersResponse.response != null && getOrdersResponse.response.equals("success")) {
+						if (getOrdersResponse.response != null
+								&& getOrdersResponse.response.equals("success")) {
 
-					new AsyncTask<Void, Void, Void>() {
+							new AsyncTask<Void, Void, Void>() {
 
-						@Override
-						protected Void doInBackground(Void... params) {
+								@Override
+								protected Void doInBackground(Void... params) {
 
-							ordersActive = new ArrayList<OrderItem>();
-							ordersFinished = new ArrayList<OrderItem>();
+									ordersActive = new ArrayList<OrderItem>();
+									ordersFinished = new ArrayList<OrderItem>();
 
-							int maxElNum = 0;
+									int maxElNum = 0;
 
-							for (OrderItem item : getOrdersResponse.orders) {
-								if (item.status.equals("active")) {
-									ordersActive.add(item);
-								} else {
-									ordersFinished.add(item);
+									for (OrderItem item : getOrdersResponse.orders) {
+										if (item.status.equals("active")) {
+											ordersActive.add(item);
+										} else {
+											ordersFinished.add(item);
+										}
+
+										if (item.items.length > maxElNum)
+											maxElNum = item.items.length;
+									}
+
+									// FIXME: clean this shit
+//									OrderItem item = new OrderItem();
+//									Item i = new Item();
+//									i.amount = 1;
+//									i.comment = "This is comment left for this item. This comment should be a little bit longer.";
+//									i.itemname = "Green Goddess soup";
+//									i.label = "Great dish";
+//									i.imagesrc = "http://wwwwww.error";
+//									Item[] items = { i, i, i, i, i, i, i, i, i,
+//											i, i, i, i, i, i };
+//
+//									item.items = items;
+//									item.status = "active";
+//									item.orderid = "dsandjsayuwy1msdk12Kkjdsak21212121";
+//									item.name = "Marlon";
+//									item.tablenumber = "25";
+//									item.time = "2:45";
+//									ordersActive.add(item);
+//									maxElNum = 15;
+									// /////////////
+									rowNumber = maxElNum / 3
+											+ (maxElNum % 3 > 0 ? 1 : 0);
+
+									adapterActive = new Adapter(
+											OrderActivity.this, ordersActive);
+									adapterFinished = new Adapter(
+											OrderActivity.this, ordersFinished);
+
+									return null;
 								}
 
-								if (item.items.length > maxElNum)
-									maxElNum = item.items.length;
-							}
+								protected void onPostExecute(Void result) {
 
-							rowNumber = maxElNum / 3 + (maxElNum % 3 > 0 ? 1 : 0);
+									listView.setAdapter(adapterActive);
+									dismissProgressDialog();
+								};
+							}.execute();
 
-							adapterActive = new Adapter(OrderActivity.this, ordersActive);
-							adapterFinished = new Adapter(OrderActivity.this, ordersFinished);
-
-							return null;
+						} else {
+							dismissProgressDialog();
 						}
 
-						protected void onPostExecute(Void result) {
+					}
+				}, new ErrorListener() {
 
-							listView.setAdapter(adapterActive);
-							dismissProgressDialog();
-						};
-					}.execute();
+					@Override
+					public void onErrorResponse(VolleyError arg0) {
 
-				} else {
-					dismissProgressDialog();
-				}
+						dismissProgressDialog();
+						showAlertDialog(R.string.dialog_title_error,
+								R.string.dialog_body_network_problem);
+					}
+				});
 
-			}
-		}, new ErrorListener() {
-
-			@Override
-			public void onErrorResponse(VolleyError arg0) {
-
-				dismissProgressDialog();
-				showAlertDialog(R.string.dialog_title_error, R.string.dialog_body_network_problem);
-			}
-		});
-
-		VolleySingleton.getInstance(getApplicationContext()).addToRequestQueue(getOrdersRequest);
+		VolleySingleton.getInstance(getApplicationContext()).addToRequestQueue(
+				getOrdersRequest);
 	}
 
 	class Adapter extends BaseAdapter {
@@ -261,63 +323,87 @@ public class OrderActivity extends BaseActivity {
 
 			OrderItem item = getItem(position);
 			if (item.status.equals("active")) {
-				((OrderItemView) convertView).setActionButtonResource(R.drawable.check);
+				((OrderItemView) convertView)
+						.setActionButtonResource(R.drawable.check);
 			} else {
-				((OrderItemView) convertView).setActionButtonResource(R.drawable.delete);
+				((OrderItemView) convertView)
+						.setActionButtonResource(R.drawable.delete);
 			}
 
 			((OrderItemView) convertView).setData(item);
-			((OrderItemView) convertView).setButtonOnClickListener(position, new OnClickListener() {
-
-				@Override
-				public void onClick(View v) {
-
-					final int position = (int) v.getTag();
-
-					Map<String, String> params = new HashMap<String, String>();
-					params.put("accesstoken", Settings.getAccessToken(OrderActivity.this));
-					params.put("orderid", getItem(position).orderid);
-
-					CompleteOrderRequest loginRequest = new CompleteOrderRequest(OrderActivity.this, params, new Listener<CompleteOrderResponse>() {
+			((OrderItemView) convertView).setButtonOnClickListener(position,
+					new OnClickListener() {
 
 						@Override
-						public void onResponse(CompleteOrderResponse loginResponse) {
+						public void onClick(View v) {
 
-							Log.e(TAG, "response");
+							final int position = (int) v.getTag();
 
-							if (loginResponse.response != null && loginResponse.response.equals("success")) {
+							Map<String, String> params = new HashMap<String, String>();
+							params.put("accesstoken",
+									Settings.getAccessToken(OrderActivity.this));
+							params.put("orderid", getItem(position).orderid);
 
-								OrderItem item = getItem(position);
+							CompleteOrderRequest loginRequest = new CompleteOrderRequest(
+									OrderActivity.this, params,
+									new Listener<CompleteOrderResponse>() {
 
-								if (item.status.equals("active")) {
-									item.status = "finished";
-									ordersFinished.add(0, ordersActive.remove(position));
-									adapterActive.notifyDataSetChanged();
-								} else {
-									item.status = "active";
-									ordersActive.add(0, ordersFinished.remove(position));
-									adapterFinished.notifyDataSetChanged();
-								}
-							} else {
+										@Override
+										public void onResponse(
+												CompleteOrderResponse loginResponse) {
 
-							}
+											Log.e(TAG, "response");
 
-						}
-					}, new ErrorListener() {
+											if (loginResponse.response != null
+													&& loginResponse.response
+															.equals("success")) {
 
-						@Override
-						public void onErrorResponse(VolleyError arg0) {
+												OrderItem item = getItem(position);
 
-							showAlertDialog(R.string.dialog_title_error, R.string.dialog_body_network_problem);
+												if (item.status
+														.equals("active")) {
+													item.status = "finished";
+													ordersFinished
+															.add(0,
+																	ordersActive
+																			.remove(position));
+													adapterActive
+															.notifyDataSetChanged();
+												} else {
+													item.status = "active";
+													ordersActive
+															.add(0,
+																	ordersFinished
+																			.remove(position));
+													adapterFinished
+															.notifyDataSetChanged();
+												}
+											} else {
+
+											}
+
+										}
+									}, new ErrorListener() {
+
+										@Override
+										public void onErrorResponse(
+												VolleyError arg0) {
+
+											showAlertDialog(
+													R.string.dialog_title_error,
+													R.string.dialog_body_network_problem);
+										}
+									});
+
+							VolleySingleton
+									.getInstance(getApplicationContext())
+									.addToRequestQueue(loginRequest);
+
 						}
 					});
-
-					VolleySingleton.getInstance(getApplicationContext()).addToRequestQueue(loginRequest);
-
-				}
-			});
 
 			return convertView;
 		}
 	}
+
 }

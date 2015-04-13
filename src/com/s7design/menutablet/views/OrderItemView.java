@@ -64,23 +64,38 @@ public class OrderItemView extends LinearLayout {
 	public void setData(OrderItem order) {
 
 		textViewTableNumber.setText(order.tablenumber);
-		textViewName.setText(order.name + "\n" + order.name);
+		textViewName.setText(order.name);
 		textViewTime.setText(order.time);
 
-		if(!order.status.contains("active")){
-			textViewTableNumber.setTextColor(getResources().getColor(R.color.menu_main_gray));
-			textViewTableNumberTitle.setTextColor(getResources().getColor(R.color.menu_main_gray));
-			textViewName.setTextColor(getResources().getColor(R.color.menu_main_gray));
-			textViewTime.setTextColor(getResources().getColor(R.color.menu_main_gray));
-			textViewTimeTitle.setTextColor(getResources().getColor(R.color.menu_main_gray));
-		}else{
-			textViewTableNumber.setTextColor(getResources().getColor(R.color.menu_main_orange));
-			textViewTableNumberTitle.setTextColor(getResources().getColor(R.color.menu_main_orange));
-			textViewName.setTextColor(getResources().getColor(R.color.menu_main_orange));
-			textViewTime.setTextColor(getResources().getColor(R.color.menu_main_orange));
-			textViewTimeTitle.setTextColor(getResources().getColor(R.color.menu_main_orange));
+		Log.e(OrderItem.class.getSimpleName(), "Text from Name: "
+				+ textViewName.getText().toString());
+		Log.e(OrderItem.class.getSimpleName(), "Text from Time: "
+				+ textViewTime.getText().toString());
+
+		if (!order.status.contains("active")) {
+			textViewTableNumber.setTextColor(getResources().getColor(
+					R.color.menu_main_gray));
+			textViewTableNumberTitle.setTextColor(getResources().getColor(
+					R.color.menu_main_gray));
+			textViewName.setTextColor(getResources().getColor(
+					R.color.menu_main_gray));
+			textViewTime.setTextColor(getResources().getColor(
+					R.color.menu_main_gray));
+			textViewTimeTitle.setTextColor(getResources().getColor(
+					R.color.menu_main_gray));
+		} else {
+			textViewTableNumber.setTextColor(getResources().getColor(
+					R.color.menu_main_orange));
+			textViewTableNumberTitle.setTextColor(getResources().getColor(
+					R.color.menu_main_orange));
+			textViewName.setTextColor(getResources().getColor(
+					R.color.menu_main_orange));
+			textViewTime.setTextColor(getResources().getColor(
+					R.color.menu_main_orange));
+			textViewTimeTitle.setTextColor(getResources().getColor(
+					R.color.menu_main_orange));
 		}
-		
+
 		int res = order.items.length % 3;
 		int length = order.items.length / 3 + (res > 0 ? 1 : 0);
 

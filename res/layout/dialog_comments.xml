@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="200dp"
+    android:id="@+id/linearLayoutCommentsContainer"
+    android:background="@drawable/dialog_comments_background_shape"
+    android:padding="20dp" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonDismissDialog"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <com.s7design.menutablet.views.MenuTextView
+                android:id="@+id/textViewComment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/menu_main_gray"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <com.s7design.menutablet.views.MenuButton
+        android:id="@+id/buttonDismissDialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@android:color/transparent"
+        android:text="@string/dismiss"
+        android:textColor="@color/menu_main_orange"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginTop="15dp"
+        android:visibility="visible" />
+
+</RelativeLayout>
