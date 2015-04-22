@@ -32,6 +32,8 @@ containing a value of this type.
     }
     public static final class dimen {
         public static final int font_size_item_title=0x7f050000;
+        public static final int start_screen_logo_height=0x7f050001;
+        public static final int start_screen_padding=0x7f050002;
     }
     public static final class drawable {
         public static final int border_square_orange_white_fill=0x7f020000;
