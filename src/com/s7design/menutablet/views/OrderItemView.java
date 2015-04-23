@@ -67,9 +67,6 @@ public class OrderItemView extends LinearLayout {
 		textViewName.setText(order.name);
 		textViewTime.setText(order.time);
 
-		Log.e(OrderItem.class.getSimpleName(), "Text from Name: " + textViewName.getText().toString());
-		Log.e(OrderItem.class.getSimpleName(), "Text from Time: " + textViewTime.getText().toString());
-
 		if (!order.status.contains("active")) {
 			textViewTableNumber.setTextColor(getResources().getColor(R.color.menu_main_gray));
 			textViewTableNumberTitle.setTextColor(getResources().getColor(R.color.menu_main_gray));
@@ -87,22 +84,26 @@ public class OrderItemView extends LinearLayout {
 		int res = order.items.length % 3;
 		int length = order.items.length / 3 + (res > 0 ? 1 : 0);
 
-		for (int i = 0; i < rowNumber; ++i) {
+		for (int ind = 0; ind < rowNumber; ++ind) {
 
-			View item = layoutRowContainer.getChildAt(i);
+			View item = layoutRowContainer.getChildAt(ind);
 
-			if (i < length) {
+			int i = 3 * ind;
+
+			if (ind < length) {
 				Item i1 = order.items[i];
 				Item i2 = null;
 				Item i3 = null;
-				if (i < length - 1) {
+				if (ind < length - 1) {
 					i2 = order.items[i + 1];
 					i3 = order.items[i + 2];
 				} else {
 					if (res == 2)
 						i2 = order.items[i + 1];
-					if (res == 0)
+					if (res == 0) {
+						i2 = order.items[i + 1];
 						i3 = order.items[i + 2];
+					}
 				}
 
 				((OrderItemRow) item).setData(i1, i2, i3);

@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.View;
@@ -59,6 +60,10 @@ public class OrderActivity extends BaseActivity {
 
 	private GestureDetector gestureDetector;
 	View.OnTouchListener gestureListener;
+
+	private Handler handler;
+	private Runnable runnable;
+	private final int REFRESH_INTERVAL = 30000;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -148,6 +153,7 @@ public class OrderActivity extends BaseActivity {
 			@Override
 			public void onClick(View v) {
 
+				handler.removeCallbacks(runnable);
 				Settings.setAccessToken(OrderActivity.this, "");
 				startActivity(new Intent(OrderActivity.this, MainActivity.class));
 				finish();
@@ -173,6 +179,18 @@ public class OrderActivity extends BaseActivity {
 		});
 
 		loadOrders();
+
+		handler = new Handler();
+		runnable = new Runnable() {
+
+			@Override
+			public void run() {
+
+				loadOrders();
+				handler.postDelayed(this, REFRESH_INTERVAL);
+			}
+		};
+		handler.postDelayed(runnable, REFRESH_INTERVAL);
 
 	}
 

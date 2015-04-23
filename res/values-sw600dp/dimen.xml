@@ -4,5 +4,6 @@
     <dimen name="font_size_item_title">19sp</dimen>
     <dimen name="start_screen_logo_height">30dp</dimen>
     <dimen name="start_screen_padding">50dp</dimen>
+    <dimen name="start_screen_padding_left">100dp</dimen>
 
 </resources>
