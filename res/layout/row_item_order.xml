@@ -8,43 +8,42 @@
     <View
         android:id="@+id/viewDivider"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginBottom="20dp"
+        android:layout_height="2px"
+        android:layout_marginBottom="24px"
         android:background="@color/menu_main_gray_light_divider"
         android:visibility="gone" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="75px"
+        android:layout_marginBottom="24px"
         android:baselineAligned="false"
         android:orientation="horizontal" >
 
         <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" >
+            android:layout_width="300px"
+            android:layout_height="match_parent" >
 
             <LinearLayout
                 android:id="@+id/linearLayoutContainer1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:paddingBottom="25dp"
                 android:visibility="visible" >
 
                 <com.android.volley.toolbox.NetworkImageView
                     android:id="@+id/imageView1"
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
+                    android:layout_width="75px"
+                    android:layout_height="75px"
                     android:scaleType="centerCrop"
                     android:visibility="visible" />
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="75dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="20dp"
-                    android:orientation="vertical" >
+                    android:layout_width="210px"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15px"
+                    android:orientation="vertical"
+                    android:paddingRight="20px" >
 
                     <com.s7design.menutablet.views.MenuTextView
                         android:id="@+id/textViewTitle1"
@@ -53,11 +52,11 @@
                         android:layout_weight="2"
                         android:ellipsize="end"
                         android:gravity="top"
-                        android:lineSpacingMultiplier="1.1"
+                        android:lineSpacingExtra="5px"
                         android:lines="2"
                         android:text="This item is awerome take 2"
                         android:textColor="@color/menu_main_gray"
-                        android:textSize="@dimen/font_size_item_title" />
+                        android:textSize="26sp" />
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -74,7 +73,7 @@
                             android:ellipsize="end"
                             android:gravity="bottom"
                             android:singleLine="true"
-                            android:textSize="18sp" />
+                            android:textSize="19sp" />
 
                         <ImageButton
                             android:id="@+id/imagebuttonItem1"
@@ -148,29 +147,27 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" >
+            android:layout_width="300px"
+            android:layout_height="match_parent" >
 
             <LinearLayout
                 android:id="@+id/layout2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="25dp" >
+                android:layout_height="match_parent"
+                android:orientation="horizontal" >
 
                 <com.android.volley.toolbox.NetworkImageView
                     android:id="@+id/imageView2"
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
+                    android:layout_width="75px"
+                    android:layout_height="75px"
                     android:scaleType="centerCrop" />
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="75dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="20dp"
-                    android:orientation="vertical" >
+                    android:layout_width="210px"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15px"
+                    android:orientation="vertical"
+                    android:paddingRight="20px" >
 
                     <com.s7design.menutablet.views.MenuTextView
                         android:id="@+id/textViewTitle2"
@@ -179,10 +176,10 @@
                         android:layout_weight="2"
                         android:ellipsize="end"
                         android:gravity="top"
-                        android:lineSpacingMultiplier="1.1"
+                        android:lineSpacingExtra="5px"
                         android:lines="2"
                         android:textColor="@color/menu_main_gray"
-                        android:textSize="@dimen/font_size_item_title" />
+                        android:textSize="26sp" />
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -200,7 +197,7 @@
                             android:ellipsize="end"
                             android:gravity="bottom"
                             android:singleLine="true"
-                            android:textSize="18sp" />
+                            android:textSize="19sp" />
 
                         <ImageButton
                             android:id="@+id/imagebuttonItem2"
@@ -274,29 +271,27 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" >
+            android:layout_width="300px"
+            android:layout_height="match_parent" >
 
             <LinearLayout
                 android:id="@+id/layout3"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="25dp" >
+                android:layout_height="match_parent"
+                android:orientation="horizontal" >
 
                 <com.android.volley.toolbox.NetworkImageView
                     android:id="@+id/imageView3"
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
+                    android:layout_width="75px"
+                    android:layout_height="75px"
                     android:scaleType="centerCrop" />
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="75dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="20dp"
-                    android:orientation="vertical" >
+                    android:layout_width="210px"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15px"
+                    android:orientation="vertical"
+                    android:paddingRight="20px" >
 
                     <com.s7design.menutablet.views.MenuTextView
                         android:id="@+id/textViewTitle3"
@@ -305,10 +300,10 @@
                         android:layout_weight="2"
                         android:ellipsize="end"
                         android:gravity="top"
-                        android:lineSpacingMultiplier="1.1"
+                        android:lineSpacingExtra="5px"
                         android:lines="2"
                         android:textColor="@color/menu_main_gray"
-                        android:textSize="@dimen/font_size_item_title" />
+                        android:textSize="26sp" />
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -326,7 +321,7 @@
                             android:ellipsize="end"
                             android:gravity="bottom"
                             android:singleLine="true"
-                            android:textSize="18sp" />
+                            android:textSize="19sp" />
 
                         <ImageButton
                             android:id="@+id/imagebuttonItem3"
