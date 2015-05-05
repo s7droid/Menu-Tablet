@@ -7,12 +7,12 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="2px"
         android:background="@color/menu_main_gray_light_divider" />
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="25dp"
+        android:layout_height="24px"
         android:background="@drawable/gradient_list_item" />
 
     <LinearLayout
@@ -22,22 +22,21 @@
         android:orientation="horizontal" >
 
         <LinearLayout
-            android:layout_width="260dp"
+            android:layout_width="260px"
             android:layout_height="match_parent"
             android:orientation="vertical" >
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="75dp"
-                android:layout_marginBottom="25dp"
+                android:layout_height="75px"
+                android:layout_marginBottom="30px"
                 android:orientation="horizontal" >
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="155px"
                     android:layout_height="match_parent"
-                    android:layout_marginRight="15dp"
-                    android:layout_weight="3"
-                    android:orientation="vertical" >
+                    android:orientation="vertical"
+                    android:paddingLeft="18px" >
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -46,7 +45,7 @@
                         android:padding="0dp" >
 
                         <com.s7design.menutablet.views.MenuTextView
-                           	android:id="@+id/textviewTableNumberTitle"
+                            android:id="@+id/textviewTableNumberTitle"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:singleLine="true"
@@ -69,8 +68,9 @@
                         android:id="@+id/textViewName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="5px"
                         android:ellipsize="end"
+                        android:lineSpacingExtra="5px"
                         android:lines="2"
                         android:textColor="@color/menu_main_orange"
                         android:textSize="26sp"
@@ -78,20 +78,19 @@
                 </LinearLayout>
 
                 <View
-                    android:layout_width="2dp"
-                    android:layout_height="75dp"
+                    android:layout_width="2px"
+                    android:layout_height="match_parent"
                     android:background="@color/menu_main_gray_light_divider" />
 
                 <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_weight="2"
+                    android:layout_width="85px"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="18px"
+                    android:layout_marginRight="18px"
                     android:orientation="vertical" >
 
                     <com.s7design.menutablet.views.MenuTextView
-                       android:id="@+id/textViewTimeTitle"
+                        android:id="@+id/textViewTimeTitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:singleLine="true"
@@ -103,7 +102,7 @@
                         android:id="@+id/textViewTime"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="5px"
                         android:ellipsize="none"
                         android:singleLine="true"
                         android:textColor="@color/menu_main_orange"
@@ -115,25 +114,24 @@
 
         <LinearLayout
             android:id="@+id/layoutRowContainer"
-            android:layout_width="0dp"
+            android:layout_width="900px"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:paddingLeft="30dp" >
+            android:layout_marginLeft="20px"
+            android:orientation="vertical" >
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="50dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginBottom="20dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="24px"
+            android:layout_marginLeft="20px"
             android:gravity="center"
             android:orientation="horizontal" >
 
             <ImageButton
                 android:id="@+id/imageButton"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="48px"
+                android:layout_height="48px"
                 android:background="@null"
                 android:scaleType="centerInside" />
         </LinearLayout>
