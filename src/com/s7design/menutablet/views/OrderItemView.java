@@ -22,6 +22,7 @@ public class OrderItemView extends LinearLayout {
 	private TextView textViewTimeTitle;
 	private LinearLayout layoutRowContainer;
 	private ImageButton imageButton;
+	private View viewDivider;
 
 	private int rowNumber = 0;
 
@@ -46,6 +47,7 @@ public class OrderItemView extends LinearLayout {
 		textViewTimeTitle = (TextView) findViewById(R.id.textViewTimeTitle);
 		layoutRowContainer = (LinearLayout) findViewById(R.id.layoutRowContainer);
 		imageButton = (ImageButton) findViewById(R.id.imageButton);
+		viewDivider = (View) findViewById(R.id.viewDivider);
 
 		for (int i = 0; i < rowNumber; ++i) {
 			OrderItemRow row = new OrderItemRow(getContext());
@@ -59,6 +61,19 @@ public class OrderItemView extends LinearLayout {
 
 	public void setActionButtonResource(int res) {
 		imageButton.setImageResource(res);
+		imageButton.setVisibility(View.VISIBLE);
+	}
+
+	public void hideActionButton() {
+		imageButton.setVisibility(View.GONE);
+	}
+
+	public void hideDivider() {
+		viewDivider.setVisibility(View.GONE);
+	}
+
+	public void showDivider() {
+		viewDivider.setVisibility(View.VISIBLE);
 	}
 
 	public void setData(OrderItem order) {

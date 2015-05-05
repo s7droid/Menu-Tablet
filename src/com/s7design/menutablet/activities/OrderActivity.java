@@ -15,6 +15,7 @@ import android.view.GestureDetector;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -168,7 +169,6 @@ public class OrderActivity extends BaseActivity {
 
 				isActive = true;
 				textViewServedOrders.setText(getResources().getString(R.string.order_activity_orders_to_serve));
-				showProgressDialogLoading();
 				textViewActive.setTextColor(getResources().getColor(R.color.menu_main_orange));
 				textViewActive.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/GothamRounded-Medium.otf"));
 				textViewFinished.setTextColor(getResources().getColor(R.color.menu_main_gray_light));
@@ -231,7 +231,8 @@ public class OrderActivity extends BaseActivity {
 							// OrderItem item = new OrderItem();
 							// Item i = new Item();
 							// i.amount = 1;
-							// i.comment = "This is comment left for this item. This comment should be a little bit longer.";
+							// i.comment =
+							// "This is comment left for this item. This comment should be a little bit longer.";
 							// i.itemname = "Green Goddess soup";
 							// i.label = "Great dish";
 							// i.imagesrc = "http://wwwwww.error";
@@ -240,7 +241,8 @@ public class OrderActivity extends BaseActivity {
 							//
 							// item.items = items;
 							// item.status = "active";
-							// item.orderid = "dsandjsayuwy1msdk12Kkjdsak21212121";
+							// item.orderid =
+							// "dsandjsayuwy1msdk12Kkjdsak21212121";
 							// item.name = "Marlon";
 							// item.tablenumber = "25";
 							// item.time = "2:45";
@@ -256,9 +258,20 @@ public class OrderActivity extends BaseActivity {
 						}
 
 						protected void onPostExecute(Void result) {
+							if (isActive)
+								listView.setAdapter(adapterActive);
+							else
+								listView.setAdapter(adapterFinished);
 
-							listView.setAdapter(adapterActive);
-							dismissProgressDialog();
+							listView.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
+
+								@Override
+								public void onGlobalLayout() {
+									listView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+									dismissProgressDialog();
+								}
+							});
+
 						};
 					}.execute();
 
@@ -312,11 +325,16 @@ public class OrderActivity extends BaseActivity {
 				convertView = new OrderItemView(context, rowNumber);
 			}
 
+			if (position == 0)
+				((OrderItemView) convertView).hideDivider();
+			else
+				((OrderItemView) convertView).showDivider();
+
 			OrderItem item = getItem(position);
 			if (item.status.equals("active")) {
 				((OrderItemView) convertView).setActionButtonResource(R.drawable.check);
 			} else {
-				((OrderItemView) convertView).setActionButtonResource(R.drawable.delete);
+				((OrderItemView) convertView).hideActionButton();
 			}
 
 			((OrderItemView) convertView).setData(item);

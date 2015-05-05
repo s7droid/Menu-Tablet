@@ -72,7 +72,7 @@ containing a value of this type.
         public static final int editTextEmail=0x7f080000;
         public static final int editTextPassword=0x7f080001;
         public static final int globalContainer=0x7f080003;
-        public static final int imageButton=0x7f08001a;
+        public static final int imageButton=0x7f08001b;
         public static final int imageButtonRefresh=0x7f080006;
         public static final int imageView1=0x7f08001d;
         public static final int imageView2=0x7f080025;
@@ -82,7 +82,7 @@ containing a value of this type.
         public static final int imagebuttonItem3=0x7f080030;
         public static final int layout2=0x7f080024;
         public static final int layout3=0x7f08002c;
-        public static final int layoutRowContainer=0x7f080019;
+        public static final int layoutRowContainer=0x7f08001a;
         public static final int linearLayoutCommentsContainer=0x7f08000e;
         public static final int linearLayoutCommentsContainer1=0x7f080021;
         public static final int linearLayoutCommentsContainer2=0x7f080029;
@@ -98,22 +98,22 @@ containing a value of this type.
         public static final int textViewComment3=0x7f080032;
         public static final int textViewFinished=0x7f080008;
         public static final int textViewLogOut=0x7f080005;
-        public static final int textViewName=0x7f080016;
+        public static final int textViewName=0x7f080017;
         public static final int textViewOrderActivityServedOrders=0x7f080007;
         public static final int textViewQuantity1=0x7f08001f;
         public static final int textViewQuantity2=0x7f080027;
         public static final int textViewQuantity3=0x7f08002f;
         public static final int textViewServiceTimeline=0x7f080004;
-        public static final int textViewTableNumber=0x7f080015;
-        public static final int textViewTime=0x7f080018;
-        public static final int textViewTimeTitle=0x7f080017;
+        public static final int textViewTableNumber=0x7f080016;
+        public static final int textViewTime=0x7f080019;
+        public static final int textViewTimeTitle=0x7f080018;
         public static final int textViewTitle1=0x7f08001e;
         public static final int textViewTitle2=0x7f080026;
         public static final int textViewTitle3=0x7f08002e;
         public static final int textViewTitleAlertDialog=0x7f08000b;
         public static final int textViewbodyAlertDialog=0x7f08000c;
-        public static final int textviewTableNumberTitle=0x7f080014;
-        public static final int viewDivider=0x7f08001b;
+        public static final int textviewTableNumberTitle=0x7f080015;
+        public static final int viewDivider=0x7f080014;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;

@@ -3,9 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingRight="10dp" >
+    android:paddingRight="10px" >
 
     <View
+        android:id="@+id/viewDivider"
         android:layout_width="match_parent"
         android:layout_height="2px"
         android:background="@color/menu_main_gray_light_divider" />
@@ -35,14 +36,12 @@
                 <LinearLayout
                     android:layout_width="155px"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:paddingLeft="18px" >
+                    android:orientation="vertical" >
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="0dp" >
+                        android:orientation="horizontal" >
 
                         <com.s7design.menutablet.views.MenuTextView
                             android:id="@+id/textviewTableNumberTitle"
@@ -51,16 +50,16 @@
                             android:singleLine="true"
                             android:text="@string/order_activity_table"
                             android:textColor="@color/menu_main_orange"
-                            android:textSize="19sp" />
+                            android:textSize="14sp" />
 
                         <com.s7design.menutablet.views.MenuTextView
                             android:id="@+id/textViewTableNumber"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
+                            android:layout_marginLeft="5px"
                             android:singleLine="true"
                             android:textColor="@color/menu_main_orange"
-                            android:textSize="19sp"
+                            android:textSize="14sp"
                             android:textStyle="bold" />
                     </LinearLayout>
 
@@ -70,10 +69,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5px"
                         android:ellipsize="end"
-                        android:lineSpacingExtra="5px"
+                        android:lineSpacingExtra="4px"
                         android:lines="2"
                         android:textColor="@color/menu_main_orange"
-                        android:textSize="26sp"
+                        android:textSize="17sp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -83,11 +82,11 @@
                     android:background="@color/menu_main_gray_light_divider" />
 
                 <LinearLayout
-                    android:layout_width="85px"
+                    android:layout_width="103px"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="18px"
-                    android:layout_marginRight="18px"
-                    android:orientation="vertical" >
+                    android:orientation="vertical"
+                    android:paddingLeft="18px"
+                    android:paddingRight="18px" >
 
                     <com.s7design.menutablet.views.MenuTextView
                         android:id="@+id/textViewTimeTitle"
@@ -96,7 +95,7 @@
                         android:singleLine="true"
                         android:text="@string/order_activity_time"
                         android:textColor="@color/menu_main_orange"
-                        android:textSize="19sp" />
+                        android:textSize="14sp" />
 
                     <com.s7design.menutablet.views.MenuTextView
                         android:id="@+id/textViewTime"
@@ -106,7 +105,7 @@
                         android:ellipsize="none"
                         android:singleLine="true"
                         android:textColor="@color/menu_main_orange"
-                        android:textSize="26sp"
+                        android:textSize="17sp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>
@@ -114,9 +113,10 @@
 
         <LinearLayout
             android:id="@+id/layoutRowContainer"
-            android:layout_width="900px"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20px"
+            android:layout_weight="1"
             android:orientation="vertical" >
         </LinearLayout>
 
@@ -124,7 +124,6 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginBottom="24px"
-            android:layout_marginLeft="20px"
             android:gravity="center"
             android:orientation="horizontal" >
 
@@ -132,6 +131,7 @@
                 android:id="@+id/imageButton"
                 android:layout_width="48px"
                 android:layout_height="48px"
+                android:layout_marginLeft="12px"
                 android:background="@null"
                 android:scaleType="centerInside" />
         </LinearLayout>

@@ -14,7 +14,7 @@
         android:visibility="gone" />
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="900px"
         android:layout_height="75px"
         android:layout_marginBottom="24px"
         android:baselineAligned="false"
@@ -52,11 +52,11 @@
                         android:layout_weight="2"
                         android:ellipsize="end"
                         android:gravity="top"
-                        android:lineSpacingExtra="5px"
+                        android:lineSpacingExtra="4px"
                         android:lines="2"
-                        android:text="This item is awerome take 2"
+                        android:text="This item is awesome take 2"
                         android:textColor="@color/menu_main_gray"
-                        android:textSize="26sp" />
+                        android:textSize="17sp" />
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -73,7 +73,7 @@
                             android:ellipsize="end"
                             android:gravity="bottom"
                             android:singleLine="true"
-                            android:textSize="19sp" />
+                            android:textSize="14sp" />
 
                         <ImageButton
                             android:id="@+id/imagebuttonItem1"
@@ -176,10 +176,10 @@
                         android:layout_weight="2"
                         android:ellipsize="end"
                         android:gravity="top"
-                        android:lineSpacingExtra="5px"
+                        android:lineSpacingExtra="4px"
                         android:lines="2"
                         android:textColor="@color/menu_main_gray"
-                        android:textSize="26sp" />
+                        android:textSize="17sp" />
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -197,7 +197,7 @@
                             android:ellipsize="end"
                             android:gravity="bottom"
                             android:singleLine="true"
-                            android:textSize="19sp" />
+                            android:textSize="14sp" />
 
                         <ImageButton
                             android:id="@+id/imagebuttonItem2"
@@ -300,10 +300,10 @@
                         android:layout_weight="2"
                         android:ellipsize="end"
                         android:gravity="top"
-                        android:lineSpacingExtra="5px"
+                        android:lineSpacingExtra="4px"
                         android:lines="2"
                         android:textColor="@color/menu_main_gray"
-                        android:textSize="26sp" />
+                        android:textSize="17sp" />
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -321,7 +321,7 @@
                             android:ellipsize="end"
                             android:gravity="bottom"
                             android:singleLine="true"
-                            android:textSize="19sp" />
+                            android:textSize="14sp" />
 
                         <ImageButton
                             android:id="@+id/imagebuttonItem3"
